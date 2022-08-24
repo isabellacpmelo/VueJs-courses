@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    {{ mensagem }} <br> <!-- Double mustache -->
+    <!-- Double mustache: Realiza um binding, que é uma amarração ou ligação. 
+    Binding trata sobre uma vinculação de um nome a um valor ou comportamento -->
+    Valor Total: {{ valorTotal }} <br>
+    Logado: {{ logado }} <br>
+    Hobbie: {{ hobbies[0] }}
+    Perfil: {{ perfil.nome }}, {{ perfil.cursos[0].nome }}
+    </div>
+
+    <script>
+
+        options = {
+            el: '#app',
+            data: { // Variáveis/Atributos reativos
+                mensagem: 'Primeiro template controlado pelo Vue', //string
+                valorTotal: 150.47, // numero
+                logado: false, // booleano
+                hobbies: [
+                    'Dormir',
+                    'Colecionar video games antigos',
+                    'Correr',
+                    'Trilhas'
+                ],
+                perfil: {
+                    nome: 'Isabella Melo',
+                    site: 'isabella.com',
+                    idade: 26,
+                    cursos: [
+                        {
+                            nome: 'Laravel', 
+                            cargaHoraria: '50 horas'
+                        },
+                        {
+                            nome: 'Banco de dados', 
+                            cargaHoraria: '40 horas'
+                        }
+                    ]
+                }
+            }
+        }
+
+        const vm = new Vue(options) //vm = ViewModel
+        console.log(vm)
+    </script>
+</body>
+</html>
