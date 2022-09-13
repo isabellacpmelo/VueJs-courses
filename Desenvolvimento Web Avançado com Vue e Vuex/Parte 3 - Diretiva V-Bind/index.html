@@ -6,13 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./vue.js"></script>
     <title>Document</title>
+    <style>
+        .verde {
+            color: green;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-     {{ somar() }} <br>
-     {{ subtrair() }} <br>
-     {{ multiplicar() }} <br>
-     {{ dividir() }} <br>
+        <a v-bind:href="site">Site</a> <!-- Sintaxe sugar (abreviada) :href -->
+        <p :class="cor">Entendendo a diretiva v-bind</p>
+        <input 
+            type="text" 
+            :placeholder="instrucaoDePreenchimento"
+            :value="valor"
+            >
+        <input 
+            type="checkbox"
+            :checked="check"
+            >
     </div>
 
     <script>
@@ -20,23 +32,13 @@
         options = {
             el: '#app',
             data: {
-                n1: 10,
-                n2: 2
+                site: 'https://www.youtube.com/watch?v=ns6B2SBswEo',
+                cor: 'verde',
+                instrucaoDePreenchimento: 'Digite aqui!',
+                valor: 'Entendendo a diretiva v-bind',
+                check: false
             },
-            methods: {
-                somar: function somar() { //convencional
-                    return this.n1 + this.n2
-                },
-                subtrair: function() { //anônima
-                    return this.n1 - this.n2
-                },
-                multiplicar: () => { //arrow function
-                    return this.n1 * this.n2 //contexto léxico
-                },
-                dividir() { //forma mais enxuta de definir os pares chave e valor
-                    return this.n1 / this.n2
-                }
-            }
+            methods: {}
         }
 
         const vm = new Vue(options) //vm = ViewModel
