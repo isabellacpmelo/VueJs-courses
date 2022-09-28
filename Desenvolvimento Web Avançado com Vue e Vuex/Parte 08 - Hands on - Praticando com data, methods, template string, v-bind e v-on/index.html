@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+    <style>
+        .verde {
+            background-color:rgba(50, 150, 50, 0.692);
+        }
+        .branco {
+            background-color: white;
+        }
+        .azul {
+            background-color:rgba(10, 40, 235, 0.76);
+        }
+        .vermelho {
+            background-color:rgb(158, 55, 55);
+        }
+
+        .borda {
+            border: solid 1px ;
+        }
+
+        .div-principal {
+            width: 200px;
+            height: 200px;
+        }
+        .div-comum {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div 
+            class="borda div-principal" 
+            :class="cor"
+        >
+            Cor: {{ cor }}
+            <br>
+            Posição X do Mouse: {{ posicaoX }}
+            Posição Y do Mouse: {{ posicaoY }}
+        </div>
+
+        <hr>
+
+        <div 
+            @click="mudarCor('verde')" 
+            class="borda div-comum"
+        >
+        </div>
+
+        <div
+            @mouseover="mudarCor('azul')" 
+            @mouseout="mudarCor('vermelho')"
+            class="borda div-comum"
+        >
+        </div>
+
+        <div 
+            @mousemove="coordenadas($event)"
+            class="borda div-comum"
+        >
+        </div>
+    </div>
+
+    <script>
+
+        options = {
+            el: '#app',
+            data: {
+                cor: 'Branco',
+                posicaoX: 0,
+                posicaoY: 0,
+            },
+            methods: {
+                mudarCor(cor) {
+                    this.cor = cor
+                },
+                coordenadas(event) {
+                    this.posicaoX = event.clientX
+                    this.posicaoY = event.clientY
+                }
+            }
+        }
+
+        const vm = new Vue(options) //vm = ViewModel
+        console.log(vm)
+    </script>
+</body>
+</html>
