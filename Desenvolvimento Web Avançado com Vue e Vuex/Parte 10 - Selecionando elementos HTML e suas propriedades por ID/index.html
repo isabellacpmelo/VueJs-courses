@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+    <style>
+        .verde {
+            background-color:rgba(50, 150, 50, 0.692);
+        }
+        .branco {
+            background-color: white;
+        }
+        .azul {
+            background-color:rgba(10, 40, 235, 0.76);
+        }
+        .vermelho {
+            background-color:rgb(158, 55, 55);
+        }
+
+        .borda {
+            border: solid 1px ;
+        }
+
+        .div-principal {
+            width: 200px;
+            height: 200px;
+        }
+        .div-comum {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" id="inputTexto">
+        <br>
+        <select id="options">
+            <option value="A">Opção 1</option>
+            <option value="B">Opção 2</option>
+            <option value="C">Opção 3</option>
+        </select>
+        <br>
+        <p id="paragrafo" style="color: red;">
+            Paragrafo
+        </p>
+        <button @click="selecionarElementoFilho()" >Botão</button>
+        <div id="bloco">
+            Conteúdo interno da div
+        </div>
+    </div>
+
+    <script>
+
+        const vm  = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                selecionarElementoFilho() {
+                    // console.log(inputTexto.type)
+                    // console.log(inputTexto.value)
+                    console.log(options)
+                    console.log(paragrafo.style.color)
+                    console.log(bloco.innerHTML)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
