@@ -11,8 +11,40 @@
 </head>
 <body>
     <div id="app">
-        <div v-html="elementosHTML"></div>
-        <div v-text="elementosHTML"></div>
+        <ul>
+            <li v-for="n in numero">{{ n }}</li>
+        </ul>
+        <ul>
+            <li v-for="(curso, chave) in cursos" v-text="`${chave + 1} - ${curso}`"></li>
+        </ul>
+        <hr>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>TD</th>
+                    <th>Titulo</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <body>
+                <tr v-for="({titulo, descricao}, chave) in cursos2"> <!-- destructuring assigment -->
+                    <td> {{ chave }}</td>
+                    <td>{{ titulo }}</td>
+                    <td>{{ descricao }}</td>
+                </tr>
+            </body>
+        </table>
+        <hr>
+        <ul>
+            <li v-for="item in publicacoes" :key="item.id" style="border: solid 1px; margin-bottom: 10px;">
+                <div>
+                    {{ item.publicacao }}
+                    <hr>
+                    <input type="text">
+                </div> 
+            </li>
+        </ul>
+        <button @click="misturarArray()">Misturar publicações</button>
     </div>
 
     <script>
@@ -20,9 +52,35 @@
         const vm  = new Vue({
             el: '#app',
             data: {
-                elementosHTML: '<p><b>Site</b></p><a href="https://github.com/isabellacpmelo">Isabella</a>'
+                numero: 5,
+                cursos: ['Laravel', 'Web Completo', 'Banco de dados', 'Solid', 'Angular'],
+                cursos2: {
+                    1000: { 
+                        titulo: 'Laravel', 
+                        descricao: 'Domine o framework mais poderoso do mundo'
+                    },
+                    1001: {
+                        titulo: 'Banco de Dados', 
+                        descricao: 'Aprenda os principais BDs relacionais do mercado'
+                    },
+                },
+                publicacoes: [
+                    {id: 1, publicacao: 'Publicoes 1'},
+                    {id: 2, publicacao: 'Publicoes 2'},
+                    {id: 3, publicacao: 'Publicoes 3'},
+                ]
             },
-            methods: {}
+            methods: {
+                misturarArray() {
+                    let misturado = []
+
+                    misturado[0] = this.publicacoes[2]
+                    misturado[1] = this.publicacoes[0]
+                    misturado[2] = this.publicacoes[1]
+
+                    this.publicacoes = misturado
+                }
+            }
         })
     </script>
 </body>
