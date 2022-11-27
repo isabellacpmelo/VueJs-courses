@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <p>Publicar Vaga</p>
+    <h1>Publicar Vaga</h1>
   </div>
 </template>
 

@@ -2,6 +2,7 @@
 
 <template>
   <div>
+    <h1>Componente App</h1>
     <Topo />
     <Conteudo />
   </div>
@@ -18,3 +19,5 @@ export default {
   },
 };
 </script>
+
+<style scoped></style>
