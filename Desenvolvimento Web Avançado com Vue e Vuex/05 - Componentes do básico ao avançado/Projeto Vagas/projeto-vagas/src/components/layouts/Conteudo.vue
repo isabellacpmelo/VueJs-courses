@@ -21,6 +21,46 @@ export default {
     HomeView: Home,
     PublicarVaga,
   },
+  methods: {},
+  beforeCreate() {
+    console.log("Antes de criar");
+  },
+  created() {
+    console.log("Criado");
+  },
+  beforeMount() {
+    console.log("Antes de criar");
+  },
+  mounted() {
+    console.log("Montado");
+  },
+  beforeUpdate() {
+    console.log("Antes de atualizar");
+  },
+  updated() {
+    console.log("Atualizado");
+  },
+  beforeUnmount() {
+    console.log("Antes de desmontar/destruir");
+  },
+  unmounted() {
+    console.log("Desmontado/destruido");
+  },
+  errorCaptured() {
+    console.log("Erro capturado");
+  },
+  renderTracked() {
+    console.log("Re-renderização rastreada");
+  },
+  renderTriggered() {
+    console.log("Re-renderização acionada");
+  },
+  activated() {
+    console.log("Componente é ativado");
+  },
+  deactivated() {
+    console.log("Componente é desativado");
+  },
 };
 </script>
 
