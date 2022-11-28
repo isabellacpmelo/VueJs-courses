@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <h1>Publicar Vaga</h1>
+    <h1>Componente Publicar Vaga</h1>
   </div>
 </template>
 

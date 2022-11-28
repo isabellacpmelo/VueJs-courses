@@ -4,11 +4,16 @@
   <div>
     <h1>{{ titulo }}</h1>
     <button @click="atualizarComponente()">Atualizar</button>
+    >
     <!-- <p>Conteudo - Propriedade $style: {{ $style }}</p> -->
     <!-- <div :class="$style.teste">Class teste</div>
     <div :id="$style['teste-1']">ID teste-1</div> -->
-    <home-view />
-    <publicar-vaga />
+    <button @click="conteudo = 'home-view'">Home</button>
+    <button @click="conteudo = 'publicar-vaga'">Publicar Vaga</button>
+    <!-- Renderizar de modo dinâmico os componentes home e publicar-vaga -->
+    <!-- <home-view />
+    <publicar-vaga /> -->
+    <component :is="conteudo" />
   </div>
 </template>
 
@@ -25,6 +30,7 @@ export default {
   data: () => ({
     teste: "O componente foi criado",
     titulo: "Componente Conteudo",
+    conteudo: "home",
   }),
   methods: {
     atualizarComponente() {
@@ -55,15 +61,15 @@ export default {
   unmounted() {
     console.log("Desmontado/destruido");
   },
-  // errorCaptured() {
-  //   console.log("Erro capturado");
-  // },
-  // renderTracked() {
-  //   console.log("Re-renderização rastreada");
-  // },
-  // renderTriggered() {
-  //   console.log("Re-renderização acionada");
-  // },
+  errorCaptured() {
+    console.log("Erro capturado");
+  },
+  renderTracked() {
+    console.log("Re-renderização rastreada");
+  },
+  renderTriggered() {
+    console.log("Re-renderização acionada");
+  },
   // activated() {
   //   console.log("Componente é ativado");
   // },
