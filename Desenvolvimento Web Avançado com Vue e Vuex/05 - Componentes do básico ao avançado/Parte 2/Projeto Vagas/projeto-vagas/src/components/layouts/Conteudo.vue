@@ -8,7 +8,7 @@
     <!-- <p>Conteudo - Propriedade $style: {{ $style }}</p> -->
     <!-- <div :class="$style.teste">Class teste</div>
     <div :id="$style['teste-1']">ID teste-1</div> -->
-    <button @click="conteudo = 'home-view'">Home</button>
+    <button @click="conteudo = 'home'">Home</button>
     <button @click="conteudo = 'publicar-vaga'">Publicar Vaga</button>
     <!-- Renderizar de modo dinâmico os componentes home e publicar-vaga -->
     <!-- <home-view />
@@ -24,7 +24,7 @@ import PublicarVaga from "@/components/views/PublicarVaga.vue";
 export default {
   name: "Conteudo",
   components: {
-    HomeView: Home,
+    Home,
     PublicarVaga,
   },
   data: () => ({
