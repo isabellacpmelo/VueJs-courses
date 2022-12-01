@@ -25,7 +25,7 @@
       <div class="col-4">
         <Indicador
           titulo="Visitantes online"
-          indicador="25"
+          :indicador="usuariosOnline"
           bg="bg-light"
           color="text-dark" />
       </div>
@@ -37,22 +37,21 @@
 import Indicador from "@/components/comuns/Indicador.vue";
 import PesquisarVaga from "@/components/comuns/PesquisarVaga.vue";
 export default {
+  name: "Home",
   components: {
     PesquisarVaga,
     Indicador,
   },
-  name: "Home",
-  activated() {
-    console.log("Componente é ativado");
+  data: () => ({
+    usuariosOnline: 0,
+  }),
+  methods: {
+    getUsuariosOnline() {
+      this.usuariosOnline = Math.floor(Math.random() * 101); //entre 0 e 100
+    },
   },
-  deactivated() {
-    console.log("Componente é desativado");
-  },
-  beforeUnmount() {
-    console.log("Antes de desmontar/destruir");
-  },
-  unmounted() {
-    console.log("Desmontado/destruido");
+  created() {
+    setInterval(this.getUsuariosOnline, 1000); //a cada 1s
   },
 };
 </script>
