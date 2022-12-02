@@ -19,6 +19,21 @@
 <script>
 export default {
   name: "Vaga",
-  props: ["titulo", "descricao", "salario", "modalidade", "tipo", "publicacao"],
+  props: {
+    titulo: String,
+    descricao: String,
+    salario: Number,
+    modalidade: String,
+    tipo: String,
+    publicacao: String,
+  },
+  created() {
+    console.log(this.titulo, typeof this.titulo);
+    console.log(this.descricao, typeof this.descricao);
+    console.log(this.salario, typeof this.salario);
+    console.log(this.modalidade, typeof this.modalidade);
+    console.log(this.tipo, typeof this.tipo);
+    console.log(this.publicacao, typeof this.publicacao);
+  },
 };
 </script>
