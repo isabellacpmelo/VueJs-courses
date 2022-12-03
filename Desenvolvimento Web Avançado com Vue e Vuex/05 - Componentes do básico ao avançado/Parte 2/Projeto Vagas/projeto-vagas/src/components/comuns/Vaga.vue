@@ -23,11 +23,10 @@ export default {
     titulo: {
       type: String,
       required: true,
-    //   validator(prop) {
-    //     console.log("Prop: ", prop);
-    //     if (prop.length < 6) return false;
-    //     return true;
-      },
+      //   validator(prop) {
+      //     console.log("Prop: ", prop);
+      //     if (prop.length < 6) return false;
+      //     return true;
     },
     descricao: {
       type: String,

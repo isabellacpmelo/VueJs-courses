@@ -10,13 +10,7 @@
 
     <div v-for="(vaga, index) in vagas" :key="index" class="row mt-5">
       <div class="col">
-        <Vaga
-          :titulo="vaga.titulo"
-          :descricao="vaga.descricao"
-          :salario="vaga.salario"
-          :modalidade="vaga.modalidade"
-          :tipo="vaga.tipo"
-          :publicação="vaga.publicacao" />
+        <Vaga v-bind="vaga" />
       </div>
     </div>
 
