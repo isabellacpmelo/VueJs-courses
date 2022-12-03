@@ -20,20 +20,37 @@
 export default {
   name: "Vaga",
   props: {
-    titulo: String,
-    descricao: String,
-    salario: Number,
-    modalidade: String,
-    tipo: String,
-    publicacao: String,
+    titulo: {
+      type: String,
+      required: true,
+    //   validator(prop) {
+    //     console.log("Prop: ", prop);
+    //     if (prop.length < 6) return false;
+    //     return true;
+      },
+    },
+    descricao: {
+      type: String,
+      required: true,
+    },
+    salario: {
+      type: [Number, String],
+      required: true,
+    },
+    modalidade: {
+      type: String,
+      required: true,
+    },
+    tipo: {
+      type: String,
+      required: true,
+    },
+    publicacao: {
+      type: String,
+    },
   },
-  created() {
-    console.log(this.titulo, typeof this.titulo);
-    console.log(this.descricao, typeof this.descricao);
-    console.log(this.salario, typeof this.salario);
-    console.log(this.modalidade, typeof this.modalidade);
-    console.log(this.tipo, typeof this.tipo);
-    console.log(this.publicacao, typeof this.publicacao);
-  },
+  //   created() {
+  //     console.log(this.titulo, typeof this.titulo);
+  //   },
 };
 </script>
