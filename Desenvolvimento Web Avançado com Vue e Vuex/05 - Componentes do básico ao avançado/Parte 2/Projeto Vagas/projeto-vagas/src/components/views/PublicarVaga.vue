@@ -85,8 +85,14 @@ export default {
   },
   methods: {
     salvarVaga() {
-      let vaga = [(tipo = this.tipo)];
-      console.log(vaga);
+      let vaga = {
+        titulo: this.titulo,
+        descricao: this.descricao,
+        salario: this.salario,
+        modalidade: this.modalidade,
+        tipo: this.tipo,
+      };
+      localStorage.setItem("vagas", JSON.stringify(vaga));
     },
   },
 };
