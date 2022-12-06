@@ -13,7 +13,9 @@
     <!-- Renderizar de modo dinâmico os componentes home e publicar-vaga -->
     <!-- <home-view />
     <publicar-vaga /> -->
-    <component :is="conteudo" />
+    <keep-alive>
+      <component :is="conteudo" />
+    </keep-alive>
   </div>
 </template>
 
