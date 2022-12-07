@@ -10,7 +10,7 @@
       <small class="text-muted">
         Salário: R$ {{ salario }} | Modalidade: {{ getModalidade }} | Tipo:
         {{ getTipo }}
-        | Data: {{ get.publicacao }}
+        | Data: {{ getpublicacao }}
       </small>
     </div>
   </div>
@@ -34,15 +34,12 @@ export default {
     },
     salario: {
       type: [Number, String],
-      required: true,
     },
     modalidade: {
       type: String,
-      required: true,
     },
     tipo: {
       type: String,
-      required: true,
     },
     publicacao: {
       type: String,
