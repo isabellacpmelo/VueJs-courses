@@ -6,7 +6,8 @@
     <button @click="desmontarComponente()">
       Desmontar o componente Conteudo
     </button>
-    <Topo @nomeDoEventoQueSeraCapturadoNoComponentePai="acao($event)" />
+    <Topo
+      @nomeDoEventoQueSeraCapturadoNoComponentePai="$event('Texto 1', 125)" />
     <Conteudo v-if="visibilidade" />
   </div>
 </template>
