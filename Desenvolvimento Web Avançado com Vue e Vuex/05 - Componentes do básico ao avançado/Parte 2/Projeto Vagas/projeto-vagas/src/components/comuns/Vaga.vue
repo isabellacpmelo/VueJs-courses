@@ -10,7 +10,7 @@
       <small class="text-muted">
         Salário: R$ {{ salario }} | Modalidade: {{ getModalidade }} | Tipo:
         {{ getTipo }}
-        | Data: {{ getpublicacao }}
+        | Data: {{ getPublicacao }}
       </small>
     </div>
   </div>
@@ -50,10 +50,8 @@ export default {
       switch (this.modalidade) {
         case "1":
           return "Home Office";
-          "";
         case "2":
           return "Presencial";
-          "";
       }
       return "";
     },
