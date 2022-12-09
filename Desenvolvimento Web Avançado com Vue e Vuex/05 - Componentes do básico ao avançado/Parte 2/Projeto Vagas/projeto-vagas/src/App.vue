@@ -2,12 +2,8 @@
 
 <template>
   <div>
-    <h1>Componente App</h1>
-    <button @click="desmontarComponente()">
-      Desmontar o componente Conteudo
-    </button>
-    <Topo :funcaoCallback="acao" />
-    <Conteudo v-if="visibilidade" />
+    <Topo @navegar="componente = $event" />
+    <Conteudo v-if="visibilidade" :conteudo="componente" />
   </div>
 </template>
 
@@ -19,22 +15,11 @@ export default {
   name: "App",
   data: () => ({
     visibilidade: true,
+    componente: "Home",
   }),
   components: {
     Conteudo,
     Topo,
-  },
-  methods: {
-    desmontarComponente() {
-      this.visibilidade = false;
-    },
-    acao(p1, p2) {
-      console.log(
-        "Funão de callback definida no componente Pai e chamada no componente Filho"
-      );
-      console.log(p1);
-      console.log(p2);
-    },
   },
 };
 </script>
