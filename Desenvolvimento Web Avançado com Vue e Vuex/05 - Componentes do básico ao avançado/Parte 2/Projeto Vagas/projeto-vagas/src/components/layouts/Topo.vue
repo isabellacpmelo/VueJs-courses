@@ -18,10 +18,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#" @click="navegarPara()">Home</a>
+              <a
+                class="nav-link"
+                href="#"
+                @click="funcaoCallback('Teste 1:', 10000)"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" @click="navegarPara()"
+              <a
+                class="nav-link"
+                href="#"
+                @click="funcaoCallback('Teste 2:', 20000)"
                 >Publicar Vaga</a
               >
             </li>
@@ -34,16 +42,9 @@
 
 <script>
 export default {
-  name: "Topo",
-  methods: {
-    navegarPara() {
-      // console.log("Chegamos até aqui");
-      this.$emit("nomeDoEventoQueSeraCapturadoNoComponentePai", (p1, p2) => {
-        console.log("emissão de callback emitida pelo componente filho");
-        console.log("p1:", p1);
-        console.log("p2:", p2);
-      });
-    },
+  props: {
+    funcaoCallback: Function,
   },
+  name: "Topo",
 };
 </script>
