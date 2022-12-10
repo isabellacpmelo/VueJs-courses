@@ -2,7 +2,17 @@
 
 <template>
   <div class="card">
-    <div class="card-header bg-dark text-white">{{ titulo }}</div>
+    <div class="card-header bg-dark text-white">
+      <div class="row">
+        <div class="col d-flex justify-content-between">
+          <div>{{ titulo }}</div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" />
+            <label class="form-check-label">Favoritar</label>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="card-body">
       <p>{{ descricao }}</p>
     </div>

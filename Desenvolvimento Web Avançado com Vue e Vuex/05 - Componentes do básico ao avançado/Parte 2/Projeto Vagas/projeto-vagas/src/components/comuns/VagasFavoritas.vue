@@ -39,10 +39,10 @@ export default {
 </script>
 
 <style scoped>
-.divvagasfavoritas {
-    position: absolute;
-    z-index: 1;
-    top: 10px;
-    right: 5px"
+.divVagasFavoritas {
+  position: absolute;
+  z-index: 1;
+  top: 70px;
+  right: 0px;
 }
 </style>
