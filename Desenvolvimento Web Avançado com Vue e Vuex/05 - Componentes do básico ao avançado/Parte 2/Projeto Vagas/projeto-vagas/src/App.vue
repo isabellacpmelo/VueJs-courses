@@ -4,7 +4,13 @@
   <div>
     <vagas-favoritas />
     <Topo @navegar="componente = $event" />
-    <alerta v-if="exibirAlerta" />
+    <alerta v-if="exibirAlerta">
+      <div class="alert alert-success" role="alert">
+        <h5>Título do alerta</h5>
+        <hr />
+        <p>Descricao do alerta</p>
+      </div>
+    </alerta>
     <Conteudo v-if="visibilidade" :conteudo="componente" />
   </div>
 </template>
