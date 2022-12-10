@@ -2,9 +2,9 @@
 
 <template>
   <div>
-    <alerta />
     <vagas-favoritas />
     <Topo @navegar="componente = $event" />
+    <alerta v-if="exibirAlerta" />
     <Conteudo v-if="visibilidade" :conteudo="componente" />
   </div>
 </template>
@@ -20,12 +20,19 @@ export default {
   data: () => ({
     visibilidade: true,
     componente: "Home",
+    exibirAlerta: false,
   }),
   components: {
     Alerta,
     Conteudo,
     Topo,
     VagasFavoritas,
+  },
+  mounted() {
+    this.emitter.on("alerta", () => {
+      this.exibirAlerta = true;
+      setTimeout(() => (this.exibirAlerta = false), 3000);
+    });
   },
 };
 </script>
