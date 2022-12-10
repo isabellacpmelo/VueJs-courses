@@ -112,7 +112,7 @@ export default {
     setInterval(this.getUsuariosOnline, 1000); //a cada 1s
   },
   // Se não existisse o keep alive, seria mounted()
-  created() {
+  activated() {
     this.vagas = JSON.parse(localStorage.getItem("vagas"));
   },
 };
