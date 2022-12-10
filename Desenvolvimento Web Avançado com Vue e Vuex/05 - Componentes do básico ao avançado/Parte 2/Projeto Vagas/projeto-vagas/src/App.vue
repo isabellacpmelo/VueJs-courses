@@ -2,6 +2,7 @@
 
 <template>
   <div>
+    <vagas-favoritas />
     <Topo @navegar="componente = $event" />
     <Conteudo v-if="visibilidade" :conteudo="componente" />
   </div>
@@ -10,6 +11,7 @@
 <script>
 import Conteudo from "./components/layouts/Conteudo.vue";
 import Topo from "./components/layouts/Topo.vue";
+import VagasFavoritas from "./components/comuns/VagasFavoritas.vue";
 
 export default {
   name: "App",
@@ -20,6 +22,7 @@ export default {
   components: {
     Conteudo,
     Topo,
+    VagasFavoritas,
   },
 };
 </script>
