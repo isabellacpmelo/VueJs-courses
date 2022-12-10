@@ -7,12 +7,14 @@
     <Topo @navegar="componente = $event" />
 
     <alerta v-if="exibirAlerta">
-      <template v-slot:titulo>
+      <!-- v-slot:titulo -->
+      <template #titulo>
         <h5>Titulo do alerta</h5>
       </template>
-      <template v-slot:descricao>
+
+      <div>
         <p>Descricao do alerta</p>
-      </template>
+      </div>
     </alerta>
 
     <Conteudo v-if="visibilidade" :conteudo="componente" />

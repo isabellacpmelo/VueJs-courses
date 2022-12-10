@@ -5,7 +5,7 @@
     <div class="alert alert-success" role="alert">
       <slot name="titulo"></slot>
       <hr />
-      <slot name="descricao"></slot>
+      <slot></slot>
     </div>
   </div>
 </template>
