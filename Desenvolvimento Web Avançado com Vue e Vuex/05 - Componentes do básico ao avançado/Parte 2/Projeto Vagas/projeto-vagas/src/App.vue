@@ -11,10 +11,7 @@
       <template #titulo>
         <h5>Titulo do alerta</h5>
       </template>
-
-      <div>
-        <p>Descricao do alerta</p>
-      </div>
+      <p>Descricao do alerta</p>
     </alerta>
 
     <Conteudo v-if="visibilidade" :conteudo="componente" />
