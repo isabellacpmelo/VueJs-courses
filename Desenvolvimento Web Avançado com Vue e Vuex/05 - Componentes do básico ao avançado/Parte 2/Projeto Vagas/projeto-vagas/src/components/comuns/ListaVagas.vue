@@ -1,13 +1,13 @@
 <!-- @format -->
 
 <template>
-  <div>
+  <slot :vagas="vagas">
     <div v-for="(vaga, index) in vagas" :key="index" class="row mt-5">
       <div class="col">
         <Vaga v-bind="vaga" />
       </div>
     </div>
-  </div>
+  </slot>
 </template>
 
 <script>
