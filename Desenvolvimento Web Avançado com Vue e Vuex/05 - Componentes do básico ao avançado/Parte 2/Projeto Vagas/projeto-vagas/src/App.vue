@@ -6,7 +6,7 @@
 
     <Topo @navegar="componente = $event" />
 
-    <alerta v-if="exibirAlerta">
+    <alerta v-if="exibirAlerta" :tipo="alerta.tipo">
       <!-- v-slot:titulo -->
       <template #titulo>
         <h5>{{ alerta.titulo }}</h5>
@@ -30,7 +30,7 @@ export default {
     visibilidade: true,
     componente: "Home",
     exibirAlerta: false,
-    alerta: { titulo: "", descricao: "" },
+    alerta: { titulo: "", descricao: "", tipo: "" },
   }),
   components: {
     Alerta,

@@ -103,17 +103,18 @@ export default {
         localStorage.setItem("vagas", JSON.stringify(vagas));
         this.emitter.emit("alerta", {
           titulo: `A vaga ${this.titulo} foi cadastrada com sucesso!`,
+          tipo: "sucesso",
           descricao: `Parabéns, a vaga foi cadastrada e poderá ser consultada por milhares de profissionais em nossa plataforma.`,
         });
+        this.resetaFormularioCadastroVaga();
       } else {
         this.emitter.emit("alerta", {
           titulo: "Opss... Não foi possível realizar o cadastro!",
+          tipo: "erro",
           descricao:
             "Parece que você esqueceu de preencher alguma informação. Faça o ajuste e tente novamente. Obrigado!",
         });
       }
-
-      this.resetaFormularioCadastroVaga();
     },
 
     resetaFormularioCadastroVaga() {
