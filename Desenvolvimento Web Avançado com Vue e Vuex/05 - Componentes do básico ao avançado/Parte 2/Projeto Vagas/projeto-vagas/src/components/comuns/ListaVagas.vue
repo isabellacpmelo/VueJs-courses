@@ -1,12 +1,23 @@
 <!-- @format -->
 
 <template>
+  <slot name="titulo" :dadosTitulo="{ titulo: 'Titulo Lista', nroVagas: 15 }">
+    <p>Titulo da lista de vagas</p>
+  </slot>
   <slot :vagas="vagas">
     <div v-for="(vaga, index) in vagas" :key="index" class="row mt-5">
       <div class="col">
         <Vaga v-bind="vaga" />
       </div>
     </div>
+  </slot>
+  <slot
+    name="rodape"
+    :dadosTitulo="{
+      titulo: 'Rodapé Lista',
+      paginacao: { nroPaginas: 10, paginaAtual: 5 },
+    }">
+    <p>O rodape da lista de vagas</p>
   </slot>
 </template>
 
