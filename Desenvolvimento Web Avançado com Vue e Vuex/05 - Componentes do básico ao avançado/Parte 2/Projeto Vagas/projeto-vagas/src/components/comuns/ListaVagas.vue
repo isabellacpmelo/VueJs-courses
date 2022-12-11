@@ -15,13 +15,25 @@ import Vaga from "@/components/comuns/Vaga.vue";
 
 export default {
   name: "ListaVagas",
-  props: {
-    vagas: {
-      type: Array,
-    },
-  },
   components: {
     Vaga,
+  },
+  data: () => ({
+    vagas: [],
+  }),
+  // Se não existisse o keep alive, seria mounted()
+  activated() {
+    this.vagas = JSON.parse(localStorage.getItem("vagas"));
+  },
+  mounted() {
+    this.emitter.on("filtrarVagas", (vaga) => {
+      const vagas = JSON.parse(localStorage.getItem("vagas"));
+
+      //true ou false: O método filter cria um novo array com todos os elementos que passaram no teste implementado na função.
+      this.vagas = vagas.filter((reg) =>
+        reg.titulo.toLowerCase().includes(vaga.titulo.toLowerCase())
+      );
+    });
   },
 };
 </script>

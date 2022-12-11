@@ -8,7 +8,7 @@
       </div>
     </div>
 
-    <lista-vagas :vagas="vagas" />
+    <lista-vagas />
 
     <div class="row mt-5">
       <div class="col-4">
@@ -50,7 +50,6 @@ export default {
   },
   data: () => ({
     usuariosOnline: 0,
-    vagas: 0,
     // vagas: [
     //   {
     //     titulo: "Analista Programador PHP Pleno",
@@ -106,20 +105,6 @@ export default {
   },
   created() {
     setInterval(this.getUsuariosOnline, 1000); //a cada 1s
-  },
-  // Se não existisse o keep alive, seria mounted()
-  activated() {
-    this.vagas = JSON.parse(localStorage.getItem("vagas"));
-  },
-  mounted() {
-    this.emitter.on("filtrarVagas", (vaga) => {
-      const vagas = JSON.parse(localStorage.getItem("vagas"));
-
-      //true ou false: O método filter cria um novo array com todos os elementos que passaram no teste implementado na função.
-      this.vagas = vagas.filter((reg) =>
-        reg.titulo.toLowerCase().includes(vaga.titulo.toLowerCase())
-      );
-    });
   },
 };
 </script>
