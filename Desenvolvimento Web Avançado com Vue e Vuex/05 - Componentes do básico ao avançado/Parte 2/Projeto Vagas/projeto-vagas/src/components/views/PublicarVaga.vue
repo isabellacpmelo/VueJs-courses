@@ -99,8 +99,11 @@ export default {
         publicacao: dataPublicacao,
       });
 
-      // localStorage.setItem("vagas", JSON.stringify(vagas));
-      this.emitter.emit("alerta");
+      localStorage.setItem("vagas", JSON.stringify(vagas));
+      this.emitter.emit("alerta", {
+        titulo: `A vaga ${this.titulo} foi cadastrada com sucesso!`,
+        descricao: `Parabéns, a vaga foi cadastrada e poderá ser consultada por milhares de profissionais em nossa plataforma.`,
+      });
 
       this.resetaFormularioCadastroVaga();
     },
