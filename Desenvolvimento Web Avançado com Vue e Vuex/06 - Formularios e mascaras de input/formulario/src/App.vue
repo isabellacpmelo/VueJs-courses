@@ -1,13 +1,13 @@
 <template>
-  <Formulario />
+  <FormularioVue />
 </template>
 
 <script>
-import Formulario from './components/Formulario.vue'
+import FormularioVue from './components/Formulario.vue'
 export default {
   name: 'App',
   components: {
-    Formulario
+    FormularioVue
   }
 }
 </script>
