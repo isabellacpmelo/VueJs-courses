@@ -8,7 +8,11 @@
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Nome:</label>
             <div class="col">
-              <input type="text" class="form-control" v-model="form.nome" />
+              <input type="text" class="form-control" v-model.lazy.trim="form.nome" />
+              <!-- Modificadores embutidos do v-model -->
+              <!-- Lazy: o valor do v-model só é modificado quando o input perde o foco -->
+              <!-- Trim: responsável por retirar espaços adicionais nas extremidades de uma determinada string-->
+              <!-- Number: transforma a string do input em um número, caso seja um valor compatível-->
             </div>
           </div>
           <div class="mb-3 row">
@@ -20,13 +24,14 @@
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Senha:</label>
             <div class="col">
-              <input type="password" class="form-control" v-model="form.senha" />
+              <input type="password" class="form-control" v-model.trim="form.senha" />
             </div>
           </div>
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Idade:</label>
             <div class="col">
-              <input type="number" class="form-control" v-model="form.idade" />
+              <input type="number" class="form-control" v-model.number="form.idade" />
+              <!-- Não é necessário utilizar o modificador number, pois o type number aceita apenas números no input, porém, no vue 2 mesmo com esse type, o valor ainda é enviado como string, então é necessário utilizar o modificador number no v-model -->
             </div>
           </div>
           <div class="mb-3 row">
