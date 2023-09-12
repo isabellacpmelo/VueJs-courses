@@ -38,11 +38,11 @@
             <label class="col-3 col-form-label">Gênero:</label>
             <div class="col">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" />
+                <input class="form-check-input" type="radio" v-model="form.genero" value="Feminino" />
                 <label class="form-check-label"> Feminino </label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" />
+                <input class="form-check-input" type="radio" v-model="form.genero" value="Masculino" />
                 <label class="form-check-label"> Masculino </label>
               </div>
             </div>
@@ -179,7 +179,7 @@
           <spam>Idade: {{ form.idade }}</spam>
         </div>
         <div class="mb-3 row">
-          <spam>Gênero:</spam>
+          <spam>Gênero: {{ form.genero }}</spam>
         </div>
         <div class="mb-3 row">
           <spam>Licença:</spam>
@@ -239,6 +239,7 @@ export default {
         idade: '',
         licenca: 'SIM',
         interesses: ['VueJs'],
+        genero: 'Feminino',
       }
     }
   }
