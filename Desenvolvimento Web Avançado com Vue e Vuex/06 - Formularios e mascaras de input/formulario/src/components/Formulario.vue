@@ -88,8 +88,36 @@
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Telefone:</label>
             <div class="col">
-              <input type="tel" class="form-control" v-model="form.telefone" v-maska="['(##) ####-####', '(##) #####-####']" />
+              <input type="text" class="form-control" v-model="form.telefone" v-maska="['(##) ####-####', '(##) #####-####']" />
               <small class="text-muted">Formato: 11 97777-5555</small>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-3 col-form-label">CEP:</label>
+            <div class="col">
+              <input type="text" class="form-control" v-model="form.cep" v-maska="'#####-###'" />
+              <small class="text-muted">Formato: 000000-000</small>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-3 col-form-label">CPF:</label>
+            <div class="col">
+              <input type="text" class="form-control" v-model="form.cpf" v-maska="'###.###.###-##'" />
+              <small class="text-muted">Formato: 000.000.000-00</small>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-3 col-form-label">CNPJ:</label>
+            <div class="col">
+              <input type="text" class="form-control" v-model="form.cnpj" v-maska="'##.###.###/####-##'" />
+              <small class="text-muted">Formato: 000.000.000/0000-00</small>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-3 col-form-label">Cartão de Crédito:</label>
+            <div class="col">
+              <input type="tel" class="form-control" v-model="form.cartaoDeCredito" v-maska="'#### #### #### ####'" />
+              <small class="text-muted">Formato: 000 0000 0000 0000</small>
             </div>
           </div>
           <div class="mb-3 row">
@@ -196,6 +224,18 @@
           <spam>Telefone: {{ form.telefone }}</spam>
         </div>
         <div class="mb-3 row">
+          <spam>CEP: {{ form.cep }}</spam>
+        </div>
+        <div class="mb-3 row">
+          <spam>CPF: {{ form.cpf }}</spam>
+        </div>
+        <div class="mb-3 row">
+          <spam>CNPJ: {{ form.cnpj }}</spam>
+        </div>
+        <div class="mb-3 row">
+          <spam>Cartão de Crédito: {{ form.cartaoDeCredito }}</spam>
+        </div>
+        <div class="mb-3 row">
           <spam>Data:</spam>
         </div>
         <div class="mb-3 row">
@@ -241,6 +281,10 @@ export default {
         interesses: ['VueJs'],
         genero: 'Feminino',
         telefone: '',
+        cep: '',
+        cpf: '',
+        cnpj: '',
+        cartaoDeCredito: '',
       }
     }
   }
