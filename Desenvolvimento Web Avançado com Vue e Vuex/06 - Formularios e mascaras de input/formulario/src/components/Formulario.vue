@@ -8,7 +8,11 @@
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Nome:</label>
             <div class="col">
-              <input type="text" class="form-control" v-model.lazy.trim="form.nome" />
+              <input
+                type="text"
+                class="form-control"
+                v-model.lazy.trim="form.nome"
+              />
               <!-- Modificadores embutidos do v-model -->
               <!-- Lazy: o valor do v-model só é modificado quando o input perde o foco -->
               <!-- Trim: responsável por retirar espaços adicionais nas extremidades de uma determinada string-->
@@ -18,19 +22,31 @@
           <div class="mb-3 row">
             <label class="col-3 col-form-label">E-mail:</label>
             <div class="col">
-              <input type="email" class="form-control" v-model="form.email" />
+              <input
+                type="email"
+                class="form-control"
+                v-model="form.email"
+              />
             </div>
           </div>
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Senha:</label>
             <div class="col">
-              <input type="password" class="form-control" v-model.trim="form.senha" />
+              <input
+                type="password"
+                class="form-control"
+                v-model.trim="form.senha"
+              />
             </div>
           </div>
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Idade:</label>
             <div class="col">
-              <input type="number" class="form-control" v-model.number="form.idade" />
+              <input
+                type="number"
+                class="form-control"
+                v-model.number="form.idade"
+              />
               <!-- Não é necessário utilizar o modificador number, pois o type number aceita apenas números no input, porém, no vue 2 mesmo com esse type, o valor ainda é enviado como string, então é necessário utilizar o modificador number no v-model -->
             </div>
           </div>
@@ -38,11 +54,21 @@
             <label class="col-3 col-form-label">Gênero:</label>
             <div class="col">
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" v-model="form.genero" value="Feminino" />
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  v-model="form.genero"
+                  value="Feminino"
+                />
                 <label class="form-check-label"> Feminino </label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" v-model="form.genero" value="Masculino" />
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  v-model="form.genero"
+                  value="Masculino"
+                />
                 <label class="form-check-label"> Masculino </label>
               </div>
             </div>
@@ -68,19 +94,39 @@
             <label class="col-3 col-form-label">Interesses:</label>
             <div class="col">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" v-model="form.interesses" value="Javascript"/>
+                <input 
+                  class="form-check-input"
+                  type="checkbox"
+                  v-model="form.interesses"
+                  value="Javascript"
+                />
                 <label class="form-check-label"> Javascript </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" v-model="form.interesses" value="VueJs" />
+                <input 
+                  class="form-check-input"
+                  type="checkbox"
+                  v-model="form.interesses"
+                  value="VueJs"
+                />
                 <label class="form-check-label"> VueJS </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" v-model="form.interesses" value="Angular" />
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  v-model="form.interesses"
+                  value="Angular"
+                />
                 <label class="form-check-label"> Angular </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" v-model="form.interesses" value="NodeJs" />
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  v-model="form.interesses"
+                  value="NodeJs"
+                />
                 <label class="form-check-label"> NodeJS </label>
               </div>
             </div>
@@ -88,36 +134,97 @@
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Telefone:</label>
             <div class="col">
-              <input type="text" class="form-control" v-model="form.telefone" v-maska="['(##) ####-####', '(##) #####-####']" />
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.telefone"
+                v-maska="['(##) ####-####', '(##) #####-####']"
+              />
               <small class="text-muted">Formato: 11 97777-5555</small>
             </div>
           </div>
           <div class="mb-3 row">
             <label class="col-3 col-form-label">CEP:</label>
             <div class="col">
-              <input type="text" class="form-control" v-model="form.cep" v-maska="'#####-###'" />
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.cep"
+                v-maska="'#####-###'"
+              />
               <small class="text-muted">Formato: 000000-000</small>
             </div>
           </div>
           <div class="mb-3 row">
             <label class="col-3 col-form-label">CPF:</label>
             <div class="col">
-              <input type="text" class="form-control" v-model="form.cpf" v-maska="'###.###.###-##'" />
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.cpf"
+                v-maska="'###.###.###-##'"
+              />
               <small class="text-muted">Formato: 000.000.000-00</small>
             </div>
           </div>
           <div class="mb-3 row">
             <label class="col-3 col-form-label">CNPJ:</label>
             <div class="col">
-              <input type="text" class="form-control" v-model="form.cnpj" v-maska="'##.###.###/####-##'" />
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.cnpj"
+                v-maska="'##.###.###/####-##'"
+              />
               <small class="text-muted">Formato: 000.000.000/0000-00</small>
             </div>
           </div>
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Cartão de Crédito:</label>
             <div class="col">
-              <input type="tel" class="form-control" v-model="form.cartaoDeCredito" v-maska="'#### #### #### ####'" />
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.cartaoDeCredito"
+                v-maska="'#### #### #### ####'"
+              />
               <small class="text-muted">Formato: 000 0000 0000 0000</small>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-3 col-form-label">Placa Veículo:</label>
+            <div class="col">
+              <input 
+                type="text" 
+                class="form-control" 
+                v-model="form.placaVeiculo"
+                v-maska="'AAA-####'"
+              />
+              <small class="text-muted">Formato: AAA-0000</small>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-3 col-form-label">Placa Veículo Mercosul:</label>
+            <div class="col">
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.placaVeiculoMercosul"
+                v-maska="'AAA#A##'"
+              />
+              <small class="text-muted">Formato: AAA0A00</small>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-3 col-form-label">Registro Geral:</label>
+            <div class="col">
+              <input
+                type="text"
+                class="form-control"
+                v-model="form.rg"
+                v-maska="'#*-X'"
+              />
+              <small class="text-muted">Formato: Sem Padrão</small>
             </div>
           </div>
           <div class="mb-3 row">
@@ -236,6 +343,15 @@
           <spam>Cartão de Crédito: {{ form.cartaoDeCredito }}</spam>
         </div>
         <div class="mb-3 row">
+          <spam>Placa Veículo: {{ form.placaVeiculo }}</spam>
+        </div>
+        <div class="mb-3 row">
+          <spam>Placa Veículo Mercosul: {{ form.placaVeiculoMercosul }}</spam>
+        </div>
+        <div class="mb-3 row">
+          <spam>Registro Geral: {{ form.rg }}</spam>
+        </div>
+        <div class="mb-3 row">
           <spam>Data:</spam>
         </div>
         <div class="mb-3 row">
@@ -285,6 +401,9 @@ export default {
         cpf: '',
         cnpj: '',
         cartaoDeCredito: '',
+        placaVeiculo: '',
+        placaVeiculoMercosul: '',
+        rg: '',
       }
     }
   }
