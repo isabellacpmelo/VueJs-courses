@@ -372,7 +372,9 @@
           <spam>Registro Geral: {{ form.rg }}</spam>
         </div>
         <div class="mb-3 row">
-          <spam>Data: {{ form.data }}</spam>
+          <spam>
+            Data: {{ form.data }} | {{ moment(form.data).format('DD/MM/YYYY') }}
+          </spam>
         </div>
         <div class="mb-3 row">
           <spam>Data/hora local: {{ form.dataHoraLocal }}</spam>
@@ -404,10 +406,13 @@
 </template>
 
 <script>
+import moment from 'moment'
+console.log(moment)
 export default {
   name: 'FormularioVue',
   data: () => {
     return {
+      moment: {},
       form: {
         nome: '',
         email: '',
@@ -431,6 +436,9 @@ export default {
         hora: '',
       }
     }
+  },
+  created() {
+    this.moment = moment
   }
 }
 </script>

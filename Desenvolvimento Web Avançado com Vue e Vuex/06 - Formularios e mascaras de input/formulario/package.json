@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "maska": "^1.5.0",
+    "moment": "^2.29.1",
     "pinia": "^2.0.35",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
