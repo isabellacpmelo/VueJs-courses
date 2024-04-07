@@ -378,6 +378,16 @@
         </div>
         <div class="mb-3 row">
           <spam>Data/hora local: {{ form.dataHoraLocal }}</spam>
+          <ul>
+            <li>{{ $moment(form.dataHoraLocal).format('dddd') }}</li>
+            <li>{{ $moment(form.dataHoraLocal).add(10, 'days') }}</li>
+            <li>{{ $moment(form.dataHoraLocal).add(1, 'month') }}</li>
+            <li>{{ $moment(form.dataHoraLocal).add(2, 'years') }}</li>
+            <li>{{ $moment(form.dataHoraLocal).subtract(10, 'days') }}</li>
+            <li>{{ $moment(form.dataHoraLocal).subtract(1, 'month') }}</li>
+            <li>{{ $moment(form.dataHoraLocal).subtract(2, 'years') }}</li>
+            <li>{{ $moment(form.dataHoraLocal).format('LLLL') }}</li>
+          </ul>
         </div>
         <div class="mb-3 row">
           <spam>Mês: {{ form.mes }}</spam>
@@ -410,7 +420,6 @@ export default {
   name: 'FormularioVue',
   data: () => {
     return {
-      moment: {},
       form: {
         nome: '',
         email: '',
