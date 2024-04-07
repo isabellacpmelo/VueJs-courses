@@ -230,31 +230,51 @@
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Data:</label>
             <div class="col">
-              <input type="date" class="form-control" />
+              <input
+                v-model="form.data"
+                type="date"
+                class="form-control"
+              />
             </div>
           </div>
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Data/hora local:</label>
             <div class="col">
-              <input type="datetime-local" class="form-control" />
+              <input
+                v-model="form.dataHoraLocal"
+                type="datetime-local"
+                class="form-control"
+              />
             </div>
           </div>
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Mês:</label>
             <div class="col">
-              <input type="month" class="form-control" />
+              <input
+                v-model="form.mes"
+                type="month"
+                class="form-control"
+                />
             </div>
           </div>
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Semana:</label>
             <div class="col">
-              <input type="week" class="form-control" />
+              <input
+                v-model="form.semana"
+                type="week"
+                class="form-control"
+              />
             </div>
           </div>
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Hora:</label>
             <div class="col">
-              <input type="time" class="form-control" />
+              <input
+                v-model="form.hora"
+                type="time"
+                class="form-control"
+              />
             </div>
           </div>
           <div class="mb-3 row">
@@ -352,19 +372,19 @@
           <spam>Registro Geral: {{ form.rg }}</spam>
         </div>
         <div class="mb-3 row">
-          <spam>Data:</spam>
+          <spam>Data: {{ form.data }}</spam>
         </div>
         <div class="mb-3 row">
-          <spam>Data/hora local:</spam>
+          <spam>Data/hora local: {{ form.dataHoraLocal }}</spam>
         </div>
         <div class="mb-3 row">
-          <spam>Mês:</spam>
+          <spam>Mês: {{ form.mes }}</spam>
         </div>
         <div class="mb-3 row">
-          <spam>Semana:</spam>
+          <spam>Semana: {{ form.semana }}</spam>
         </div>
         <div class="mb-3 row">
-          <spam>Hora:</spam>
+          <spam>Hora: {{ form.hora }}</spam>
         </div>
         <div class="mb-3 row">
           <spam>Cor:</spam>
@@ -404,6 +424,11 @@ export default {
         placaVeiculo: '',
         placaVeiculoMercosul: '',
         rg: '',
+        data: '',
+        dataHoraLocal: '',
+        mes: '',
+        semana: '',
+        hora: '',
       }
     }
   }
