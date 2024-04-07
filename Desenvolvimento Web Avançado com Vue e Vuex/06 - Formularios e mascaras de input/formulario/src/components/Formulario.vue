@@ -469,7 +469,7 @@ export default {
         mes: '',
         semana: '',
         hora: '',
-        cor: '',
+        cor: '#6c757d',
         alcance: 0,
         escondido: 'Esse input está escondido',
         arquivos: {},
