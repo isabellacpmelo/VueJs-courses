@@ -290,7 +290,14 @@
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Valor limite:</label>
             <div class="col">
-              <input type="range" class="form-range" min="0" max="100" step="1" />
+              <input
+                v-model="form.alcance"
+                type="range"
+                class="form-range"
+                min="0"
+                max="100"
+                step="0.1"
+              />
             </div>
           </div>
           <div class="mb-3 row">
@@ -409,7 +416,7 @@
           <spam>Cor: {{ form.cor }}</spam>
         </div>
         <div class="mb-3 row">
-          <spam>Valor limite:</spam>
+          <spam>Valor limite: {{ form.alcance }}</spam>
         </div>
         <div class="mb-3 row">
           <spam>Escondido:</spam>
@@ -449,6 +456,7 @@ export default {
         semana: '',
         hora: '',
         cor: '',
+        alcance: 0,
       }
     }
   },
