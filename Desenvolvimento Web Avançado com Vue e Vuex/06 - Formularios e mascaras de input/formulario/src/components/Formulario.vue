@@ -303,7 +303,11 @@
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Escondido:</label>
             <div class="col">
-              <input type="hidden" class="form-control" />
+              <input
+                v-model="form.escondido"
+                type="hidden"
+                class="form-control"
+              />
             </div>
           </div>
           <div class="mb-3 row">
@@ -419,7 +423,7 @@
           <spam>Valor limite: {{ form.alcance }}</spam>
         </div>
         <div class="mb-3 row">
-          <spam>Escondido:</spam>
+          <spam>Escondido: {{ form.escondido }}</spam>
         </div>
         <div class="mb-3 row">
           <spam>Upload:</spam>
@@ -457,6 +461,7 @@ export default {
         hora: '',
         cor: '',
         alcance: 0,
+        escondido: 'Esse input está escondido',
       }
     }
   },
