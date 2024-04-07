@@ -280,7 +280,11 @@
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Cor:</label>
             <div class="col">
-              <input type="color" class="form-color" />
+              <input
+                v-model="form.cor"
+                type="color"
+                class="form-color"
+              />
             </div>
           </div>
           <div class="mb-3 row">
@@ -312,7 +316,10 @@
         </form>
       </div>
 
-      <div class="col-6 text-white bg-secondary">
+      <div 
+        class="col-6 text-white bg-secondary"
+        :style="`background-color: ${form.cor} !important`"
+      >
         <span class="fs-4">ESTADO DO OBJETO</span>
         <hr />
         <div class="mb-5 row">
@@ -399,7 +406,7 @@
           <spam>Hora: {{ form.hora }}</spam>
         </div>
         <div class="mb-3 row">
-          <spam>Cor:</spam>
+          <spam>Cor: {{ form.cor }}</spam>
         </div>
         <div class="mb-3 row">
           <spam>Valor limite:</spam>
@@ -441,6 +448,7 @@ export default {
         mes: '',
         semana: '',
         hora: '',
+        cor: '',
       }
     }
   },
