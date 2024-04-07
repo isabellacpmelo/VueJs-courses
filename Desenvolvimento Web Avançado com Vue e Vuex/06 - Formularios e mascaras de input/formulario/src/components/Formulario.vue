@@ -373,7 +373,7 @@
         </div>
         <div class="mb-3 row">
           <spam>
-            Data: {{ form.data }} | {{ moment(form.data).format('DD/MM/YYYY') }}
+            Data: {{ form.data }} | {{ $moment(form.data).format('DD/MM/YYYY') }}
           </spam>
         </div>
         <div class="mb-3 row">
@@ -406,8 +406,6 @@
 </template>
 
 <script>
-import moment from 'moment'
-console.log(moment)
 export default {
   name: 'FormularioVue',
   data: () => {
@@ -437,8 +435,5 @@ export default {
       }
     }
   },
-  created() {
-    this.moment = moment
-  }
 }
 </script>
