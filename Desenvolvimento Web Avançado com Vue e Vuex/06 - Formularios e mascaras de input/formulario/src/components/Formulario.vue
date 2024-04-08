@@ -321,6 +321,16 @@
               />
             </div>
           </div>
+          <div class="mb-3 row">
+            <label class="col-3 col-form-label">Descrição:</label>
+            <div class="col">
+              <textarea
+                v-model="form.descricao"
+                class="form-control"
+                rows="3">
+              </textarea>
+            </div>
+          </div>
           <hr />
           <div class="mb-3 row">
             <div class="col d-flex justify-content-between">
@@ -438,6 +448,11 @@
             </li>
           </ul>
         </div>
+        <div class="mb-3 row">
+          <spam>Descrição:</spam>
+          <!-- <pre>{{ form.descricao }}</pre> -->
+          <div style="white-space: pre">{{ form.descricao }}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -473,6 +488,7 @@ export default {
         alcance: 0,
         escondido: 'Esse input está escondido',
         arquivos: {},
+        descricao: '',
       }
     }
   },
