@@ -4,6 +4,10 @@
       <div class="col-6 bg-light">
         <span class="fs-4">ENTRADA DE DADOS</span>
         <hr />
+        <!-- submit: dispara o evento submit do form e faz um refresh da página  -->
+        <!-- action: define o caminho/destino do formulário -->
+        <!-- Ao utilizar o prevent, o evento submit não é executado automaticamente -->
+        <!-- <form @submit.prevent="enviar($event)" action=""> -->
         <form>
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Nome:</label>
@@ -349,9 +353,25 @@
           <hr />
           <div class="mb-3 row">
             <div class="col d-flex justify-content-between">
-              <button class="btn btn-secondary" type="reset">Limpar</button>
-              <button class="btn btn-success" type="button">Enviar (btn)</button>
-              <button class="btn btn-success" type="submit">Enviar (submit)</button>
+              <button 
+                class="btn btn-secondary"
+                type="reset"
+              >
+                Limpar
+              </button>
+              <button
+                class="btn btn-success"
+                type="button"
+                @click="enviar($event)"
+              >
+                Enviar (btn)
+              </button>
+              <button
+                class="btn btn-success"
+                type="submit"
+              >
+                Enviar (submit)
+              </button>
             </div>
           </div>
         </form>
@@ -532,6 +552,16 @@ export default {
   methods: {
     selecionarArquivos(event) {
       this.form.arquivos = event.target.files
+    },
+    enviar(event) {
+      console.log(event)
+      // console.log(this.form)
+      
+      const formEnvio = Object.assign({}, this.form)
+      console.log(formEnvio)
+      
+      // Uma requisição HTTP para o backend da aplicação
+      // Promise que vai nos permitir tomar ações se a requisição deu certo ou errado
     }
   }
 }
