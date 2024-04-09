@@ -8,7 +8,7 @@
         <!-- action: define o caminho/destino do formulário -->
         <!-- Ao utilizar o prevent, o evento submit não é executado automaticamente -->
         <!-- <form @submit.prevent="enviar($event)" action=""> -->
-        <form>
+        <form @reset.prevent="resetar()">
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Nome:</label>
             <div class="col">
@@ -355,9 +355,16 @@
             <div class="col d-flex justify-content-between">
               <button 
                 class="btn btn-secondary"
+                type="button"
+                @click="resetar()"
+              >
+                Limpar (btn)
+              </button>
+              <button 
+                class="btn btn-secondary"
                 type="reset"
               >
-                Limpar
+                Limpar (reset)
               </button>
               <button
                 class="btn btn-success"
@@ -519,9 +526,10 @@ export default {
           curso: 'Curso Completo do Desenvolvedor NodeJs e MongoDB'
         },
       ],
-      form: {
-        nome: '',
-        email: '',
+      form: {},
+      formEstadoIncial: {
+        nome: 'Joaninha Cristálida',
+        email: 'joa_cristalida@tester.com',
         senha: '',
         idade: '',
         licenca: 'SIM',
@@ -549,6 +557,9 @@ export default {
       }
     }
   },
+  created() {
+    this.form = Object.assign({}, this.formEstadoIncial)
+  },
   methods: {
     selecionarArquivos(event) {
       this.form.arquivos = event.target.files
@@ -562,6 +573,9 @@ export default {
       
       // Uma requisição HTTP para o backend da aplicação
       // Promise que vai nos permitir tomar ações se a requisição deu certo ou errado
+    },
+    resetar() {
+      this.form = Object.assign({}, this.formEstadoIncial)
     }
   }
 }
