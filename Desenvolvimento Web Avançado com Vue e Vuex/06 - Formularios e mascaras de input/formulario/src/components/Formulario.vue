@@ -352,7 +352,8 @@
             <div class="mb-3 row">
             <label class="col-3 col-form-label">Avaliação:</label>
             <div class="col">
-              <input-estrelas :numero-estrelas="5" @avaliar="form.avaliacao = $event" />
+              <!-- <input-estrelas :numero-estrelas="5" @avaliar="form.avaliacao = $event" /> -->
+              <input-estrelas :numero-estrelas="5" v-model:avaliar="form.avaliacao" />
             </div>
           </div>
           </div>
