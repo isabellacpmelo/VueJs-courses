@@ -352,7 +352,7 @@
             <div class="mb-3 row">
             <label class="col-3 col-form-label">Avaliação:</label>
             <div class="col">
-              <input-estrelas :numero-estrelas="5" />
+              <input-estrelas :numero-estrelas="5" @avaliar="form.avaliacao = $event" />
             </div>
           </div>
           </div>
@@ -504,6 +504,9 @@
         <div class="mb-3 row">
           <spam>Curso: {{ form.curso }}</spam>
         </div>
+        <div class="mb-3 row">
+          <spam>Avaliação: {{ form.avaliacao }}</spam>
+        </div>
       </div>
     </div>
   </div>
@@ -565,6 +568,7 @@ export default {
         arquivos: {},
         descricao: '',
         curso: '',
+        avaliacao: '',
       }
     }
   },

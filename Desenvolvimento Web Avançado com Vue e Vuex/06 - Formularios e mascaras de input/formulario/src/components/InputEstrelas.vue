@@ -39,9 +39,12 @@ export default {
       this.iniciarEstrelas()
 
       this.avaliacao = e + 1
+
       for(let i = 0; i < this.avaliacao; i++) {
         this.estrelas[i] = { id: i, estilo: 'bi-star-fill estrela preenchida'}
       }
+
+      this.$emit('avaliar', this.avaliacao)
     }
   }
 }
