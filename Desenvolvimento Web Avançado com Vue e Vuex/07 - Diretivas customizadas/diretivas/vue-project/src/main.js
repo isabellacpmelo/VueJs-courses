@@ -6,9 +6,16 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
-const app = createApp(App)
+const vue = createApp(App)
 
-app.use(createPinia())
-app.use(router)
+vue.directive('teste', {
+    // chamado antes que os atributos do elemento ou ouvintes de event (event listeners) sejam aplicados
+    created() {
+        console.log('A diretiva foi aplicada com sucesso')
+    }
+})
 
-app.mount('#app')
+vue.use(createPinia())
+vue.use(router)
+
+vue.mount('#app')
