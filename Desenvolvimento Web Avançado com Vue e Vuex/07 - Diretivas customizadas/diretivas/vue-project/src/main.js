@@ -10,17 +10,20 @@ const vue = createApp(App)
 
 vue.directive('texto', {
     // chamado antes que os atributos do elemento ou ouvintes de event (event listeners) sejam aplicados
-    created(el) {
-        console.log(el.style)
-        el.style.color = 'red'
-        el.style.fontSize = '150%'
+    created(el, binding) {
+        console.log(binding.value)
+        if(binding?.value?.cor)
+            el.style.color = binding.value.cor
+        if(binding?.value?.tamanhoFonte)
+            el.style.fontSize = binding.value.tamanhoFonte
 
         let textoOriginal = el.innerText
         let tamanhoOriginal = textoOriginal.length
         let textoAjustado = ''
-        // truncar o texto em 22 caracter e adicionar '...'
-        if(tamanhoOriginal > 25)
-            textoAjustado = `${textoOriginal.substring(0, 22)}...`
+
+        const totalCaracteres = binding?.value?.totalCaracteres ? binding.value.totalCaracteres : 25
+        if(tamanhoOriginal > totalCaracteres)
+            textoAjustado = `${textoOriginal.substring(0, totalCaracteres - 3)}...`
         else
             textoAjustado = textoOriginal
 
