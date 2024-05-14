@@ -1,6 +1,13 @@
 <script>
   export default {
     name: 'App',
+    data: () => ({
+      configuracaoTexto: {
+        cor: 'orange', 
+        tamanhoFonte: '80%',
+        totalCaracteres: 6,
+      }
+    })
   }
 </script>
 
@@ -11,7 +18,7 @@
     Minha primeira diretiva customizada
   </p>
   <p
-    v-texto="{ cor: 'orange', tamanhoFonte: '80%', totalCaracteres: 6}"
+    v-texto="configuracaoTexto"
   >
     Teste
   </p>
