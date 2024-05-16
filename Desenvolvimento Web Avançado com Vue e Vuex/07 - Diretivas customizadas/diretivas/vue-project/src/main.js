@@ -32,13 +32,18 @@ vue.directive('texto', {
 
 vue.directive('posicao', {
     created(el, binding) {
-        console.log(binding.arg, binding.value)
         const posicoesPossiveis = ['relative', 'fixed', 'absolute']
-        console.log(el.style)
         if (posicoesPossiveis.includes(binding?.arg)) {
             el.style.position = binding?.arg
             el.style.top = `${binding.value}px`
         }
+    }
+})
+
+vue.directive('informacao', {
+    created(el, binding) {
+        console.log('el:', el)
+        console.log('binding:', binding)
     }
 })
 

@@ -25,4 +25,8 @@
   <div v-posicao:absolute="30" v-texto="{cor: 'green'}">
     Olá! eu sou um binding de argumento e valor.
   </div>
+
+  <span>Código A:</span>
+  <input type="text">
+  <span v-informacao:simples.umClickMouse="'Você encontrará o código na parte frontal do equipamento'">i</span>
 </template>
