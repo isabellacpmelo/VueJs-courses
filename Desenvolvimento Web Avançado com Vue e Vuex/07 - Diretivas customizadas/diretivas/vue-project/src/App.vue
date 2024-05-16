@@ -22,4 +22,7 @@
   >
     Teste
   </p>
+  <div v-posicao:absolute="30" v-texto="{cor: 'green'}">
+    Olá! eu sou um binding de argumento e valor.
+  </div>
 </template>

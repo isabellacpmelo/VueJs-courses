@@ -11,7 +11,6 @@ const vue = createApp(App)
 vue.directive('texto', {
     // chamado antes que os atributos do elemento ou ouvintes de event (event listeners) sejam aplicados
     created(el, binding) {
-        console.log(binding.value)
         if(binding?.value?.cor)
             el.style.color = binding.value.cor
         if(binding?.value?.tamanhoFonte)
@@ -28,6 +27,18 @@ vue.directive('texto', {
             textoAjustado = textoOriginal
 
         el.innerText = textoAjustado
+    }
+})
+
+vue.directive('posicao', {
+    created(el, binding) {
+        console.log(binding.arg, binding.value)
+        const posicoesPossiveis = ['relative', 'fixed', 'absolute']
+        console.log(el.style)
+        if (posicoesPossiveis.includes(binding?.arg)) {
+            el.style.position = binding?.arg
+            el.style.top = `${binding.value}px`
+        }
     }
 })
 
