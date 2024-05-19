@@ -44,6 +44,31 @@ vue.directive('informacao', {
     created(el, binding) {
         console.log('el:', el)
         console.log('binding:', binding)
+
+        let funcao = function() {
+            let informacaoSpan = document.createElement('spam')
+            informacaoSpan.style.position = 'absolute'
+            informacaoSpan.style.padding = '2px'
+            informacaoSpan.style.background = '#ddd'
+            informacaoSpan.style.fontSize = '8px'
+            informacaoSpan.style.color = '#000'
+            informacaoSpan.innerText = binding.value
+
+            el.appendChild(informacaoSpan)
+
+            informacaoSpan.addEventListener('click', (event) => {
+                event.stopPropagation()
+                informacaoSpan.remove()
+            })
+        }
+
+        if (binding.modifiers['umClickMouse']) {
+            el.addEventListener('click', funcao)
+        }
+
+        if (binding.modifiers['doisClicksMouse']) {
+            el.addEventListener('dblclick', funcao)
+        }
     }
 })
 
