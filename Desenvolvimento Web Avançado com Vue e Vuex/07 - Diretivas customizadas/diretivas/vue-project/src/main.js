@@ -63,6 +63,12 @@ vue.directive('informacao', {
                     event.stopPropagation()
                     informacaoSpan.remove()
                 })
+
+                if (binding.modifiers['sairAutomaticamente']) {
+                    setTimeout(() => {
+                        informacaoSpan.remove()
+                    }, 3000);
+                }
             }
         }
 
@@ -94,6 +100,12 @@ vue.directive('informacao', {
                     event.stopPropagation()
                     informacaoDivContainer.remove()
                 })
+
+                if (binding.modifiers['sairAutomaticamente']) {
+                    setTimeout(() => {
+                        informacaoDivContainer.remove()
+                    }, 3000);
+                }
             }
         }
 

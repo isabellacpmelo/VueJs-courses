@@ -37,7 +37,7 @@
   <span>Código B:</span>
   <input type="text">
   <span
-    v-informacao:destacado.doisClicksMouse="'Você encontrará o código B na parte frontal do equipamento'"
+    v-informacao:destacado.doisClicksMouse.sairAutomaticamente="'Você encontrará o código B na parte frontal do equipamento'"
   >
    <strong class="info">i</strong>
   </span>
