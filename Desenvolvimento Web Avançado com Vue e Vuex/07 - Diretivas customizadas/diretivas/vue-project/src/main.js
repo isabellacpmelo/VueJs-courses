@@ -6,8 +6,8 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
-import texto from './directives/texto.js'
-import posicao from './directives/posicao.js'
+import texto from './directives/texto'
+import posicao from './directives/posicao'
 import informacao from './directives/informacao'
 
 const vue = createApp(App)
