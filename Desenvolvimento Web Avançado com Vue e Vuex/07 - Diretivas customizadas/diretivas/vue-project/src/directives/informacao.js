@@ -1,7 +1,7 @@
-export default{
+export default {
     created(el, binding) {
-        console.log('el:', el)
-        console.log('binding:', binding)
+        // console.log('el:', el)
+        // console.log('binding:', binding)
 
         let funcao = null
 

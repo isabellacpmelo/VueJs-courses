@@ -1,4 +1,4 @@
-export default{
+export default {
     created(el, binding) {
         const posicoesPossiveis = ['relative', 'fixed', 'absolute']
         if (posicoesPossiveis.includes(binding?.arg)) {

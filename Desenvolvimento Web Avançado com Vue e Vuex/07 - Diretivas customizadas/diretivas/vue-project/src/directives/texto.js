@@ -1,5 +1,5 @@
 // chamado antes que os atributos do elemento ou ouvintes de event (event listeners) sejam aplicados
-export default{
+export default {
     created(el, binding) {
         if(binding?.value?.cor)
             el.style.color = binding.value.cor

@@ -1,6 +1,13 @@
 <script>
   export default {
     name: 'App',
+    directives: {
+      colorir: {
+        created: function(el, binding) {
+          el.style.background = binding.value
+        }
+      }
+    },
     data: () => ({
       configuracaoTexto: {
         cor: 'orange', 
@@ -29,7 +36,7 @@
   <span>Código A:</span>
   <input type="text">
   <span
-    v-informacao:simples.umClickMouse="'Você encontrará o código A na parte frontal do equipamento'"
+    informacao:simples.umClickMouse="'Você encontrará o código A na parte frontal do equipamento'"
   >
    <strong class="info">i</strong>
   </span>
@@ -41,6 +48,8 @@
   >
    <strong class="info">i</strong>
   </span>
+  <hr>
+  <h1 v-colorir="'red'">Diretiva customizada registrada localmente (no componente)</h1>
 </template>
 
 <style>
