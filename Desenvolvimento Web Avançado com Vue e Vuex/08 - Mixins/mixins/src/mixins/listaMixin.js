@@ -9,5 +9,8 @@ export default {
             this.items.push(this.item)
             this.item = ''
         }
+    },
+    created() {
+        console.log('Lista mixin criado!')
     }
 }

@@ -7,7 +7,10 @@ export default {
     data: () => ({
         titulo: 'Lista Filmes'
     }),
-    mixins: [listaMixin, removerItemListaMixin]
+    mixins: [listaMixin, removerItemListaMixin],
+    created() {
+        console.log('Lista filmes criado!')
+    }
 }
 </script>
 

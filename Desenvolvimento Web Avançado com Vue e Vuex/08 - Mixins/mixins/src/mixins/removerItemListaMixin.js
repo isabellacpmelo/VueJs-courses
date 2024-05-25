@@ -3,5 +3,8 @@ export default {
        removerItem() {
         this.items.pop()
        } 
+    },
+    created() {
+        console.log('removerItemListaMixin criado!')
     }
 }
