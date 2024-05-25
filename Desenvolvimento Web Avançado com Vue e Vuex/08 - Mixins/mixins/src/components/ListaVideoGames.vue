@@ -1,9 +1,10 @@
 <script>
 import listaMixin from '@/mixins/listaMixin'
+import removerItemListaMixin from '@/mixins/removerItemListaMixin'
 
 export default {
     name: 'ListaVideoGames',
-    mixins: [listaMixin]
+    mixins: [listaMixin, removerItemListaMixin]
 }
 </script>
 
@@ -24,5 +25,8 @@ export default {
                 {{ item }}
             </li>
         </ul>
+        <button type="button" @click="removerItem">
+            Remover
+        </button>
     </div>
 </template>
