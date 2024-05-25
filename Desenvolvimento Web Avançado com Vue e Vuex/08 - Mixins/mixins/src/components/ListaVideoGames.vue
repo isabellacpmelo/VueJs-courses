@@ -4,13 +4,16 @@ import removerItemListaMixin from '@/mixins/removerItemListaMixin'
 
 export default {
     name: 'ListaVideoGames',
+    data: () => ({
+        titulo: 'Lista Video Games'
+    }),
     mixins: [listaMixin, removerItemListaMixin]
 }
 </script>
 
 <template>
     <div>
-        <h3>Lista Video Games</h3>
+        <h3>{{ titulo }}</h3>
         <input
             v-model="item"
             type="text"
