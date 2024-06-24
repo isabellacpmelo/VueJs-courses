@@ -1,8 +1,19 @@
-<script setup lang="ts">
-import router from '@/router';
-</script>
-
 <!-- eslint-disable vue/multi-word-component-names -->
+<script>
+export default {
+    name: 'Login',
+    methods: {
+        navegarPara() {
+            // console.log(this.$router) // Objeto de roteamento
+            // this.$router.push('/home')
+            // this.$router.push({ path: 'home' })
+
+            // this.$router.replace('/home') // Não entra no histório de navegação
+            this.$router.replace({ path: 'home' })
+        }
+    }
+}
+</script>
 <template>
     <div>
         <nav class="navbar navbar-light bg-light menu-superior">
@@ -29,7 +40,12 @@ import router from '@/router';
                         <div class="mb-3">
                             <input type="password" class="form-control" placeholder="Senha">
                         </div>
-                        <button class="btn btn-primary">Login</button>
+                        <button 
+                            class="btn btn-primary"
+                            @click="navegarPara"
+                        >
+                            Login
+                        </button>
                     </div>
                 </div>
             </div>
