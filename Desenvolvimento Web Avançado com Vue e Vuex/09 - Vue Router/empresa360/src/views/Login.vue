@@ -5,11 +5,21 @@ export default {
     methods: {
         navegarPara() {
             // console.log(this.$router) // Objeto de roteamento
-            // this.$router.push('/home')
+
+            // Coletar os dados de e-mail e senha
+            // Realizar uma requisição http de autenticação
+            // Receber o token de autorização
+
+            this.$router.push('/home')
             // this.$router.push({ path: 'home' })
 
             // this.$router.replace('/home') // Não entra no histório de navegação
-            this.$router.replace({ path: 'home' })
+            // this.$router.replace({ path: 'home' })
+
+            // this.$router.forward() // avançar no histórico de rotas do navegador
+            // this.$router.back() // retornar no histó rico de rotas do navegador
+
+            // this.$router.go(-2) // avançar ou retornar no histórico de rotas do navegador
         }
     }
 }
