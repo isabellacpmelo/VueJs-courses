@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import router from '@/router';
+</script>
+
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <div>
@@ -16,19 +20,31 @@
 
         <div class="d-flex">
             <div class="list-group menu-esquerda">
-                <a class="list-group-item list-group-item-action" href="#"><i class="bi bi-speedometer2"></i> Dashboard</a>
+                <router-link class="list-group-item list-group-item-action" to="/home">
+                    <i class="bi bi-speedometer2"></i>
+                    Dashboard
+                </router-link>
+                <router-link class="list-group-item list-group-item-action" to="/home/vendas">
+                    <i class="bi bi-cart"></i>
+                    Vendas
+                </router-link>
+                <router-link class="list-group-item list-group-item-action" to="/home/servicos">
+                    <i class="bi bi-card-checklist"></i>
+                    Serviços
+                </router-link>
             </div>
 
             <div class="w-100">
                 <nav aria-label="breadcrumb" class="pt-1 ps-3">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Dashboard
+                        </li>
                     </ol>
                 </nav>
 
                 <div class="container-fluid">
-                    <h1 class="mt-4">Visões relacionadas ao menu</h1>
-                    <p>Aqui podemos apresentar as views de acordo com as opções do menu.</p>
+                    <router-view></router-view>
                 </div>
 
             </div>
