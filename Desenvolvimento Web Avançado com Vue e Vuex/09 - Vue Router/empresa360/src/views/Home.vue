@@ -1,8 +1,10 @@
-<script setup lang="ts">
+<!-- eslint-disable vue/multi-word-component-names -->
+<!-- eslint-disable no-unused-vars -->
+
+<script setup>
 import router from '@/router';
 </script>
 
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <div>
         <nav class="navbar navbar-light bg-light menu-superior">
@@ -27,6 +29,14 @@ import router from '@/router';
                 <router-link class="list-group-item list-group-item-action" to="/home/vendas">
                     <i class="bi bi-cart"></i>
                     Vendas
+                </router-link>
+                <router-link class="list-group-item list-group-item-action" to="/home/vendas/leads">
+                    <i class="bi bi-caret-right"></i>
+                    Leads
+                </router-link>
+                <router-link class="list-group-item list-group-item-action" to="/home/vendas/contratos">
+                    <i class="bi bi-caret-right"></i>
+                    Contratos
                 </router-link>
                 <router-link class="list-group-item list-group-item-action" to="/home/servicos">
                     <i class="bi bi-card-checklist"></i>
