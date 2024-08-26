@@ -78,4 +78,16 @@ import router from '@/router';
     border-right: none;
 }
 
+.router-link-active {
+    color: #fff;
+    background-color: #b6d19c;
+    border-color: #b4c2a8;
+}
+
+.router-link-exact-active {
+    color: #fff;
+    background-color: #aab680;
+    border-color: #899978;
+}
+
 </style>
