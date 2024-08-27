@@ -9,7 +9,7 @@ import router from '@/router';
     <div>
         <nav class="navbar navbar-light bg-light menu-superior">
             <div class="container">
-                <a class="navbar-brand" href="#">Empresa 360</a>
+                <router-link class="navbar-brand" to="/home">Empresa 360</router-link>
                 <div class="navbar-nav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -23,7 +23,7 @@ import router from '@/router';
         <div class="d-flex">
             <div class="list-group menu-esquerda">
                 <!-- usando classe do bootstrap para rota active -->
-                <router-link class="list-group-item list-group-item-action" to="/home" exact-active-class="active">
+                <router-link class="list-group-item list-group-item-action" to="/home/dashboard" exact-active-class="active">
                     <i class="bi bi-speedometer2"></i>
                     Dashboard
                 </router-link>

@@ -4,6 +4,7 @@ import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
 import Site from '@/views/Site.vue'
 import Servicos from '@/components/servicos/Servicos.vue'
+import Dashboard from '@/components/dashboard/Dashboard.vue';
 import Vendas from '@/components/vendas/Vendas.vue'
 import Leads from '@/components/vendas/Leads.vue'
 import Contratos from '@/components/vendas/Contratos.vue'
@@ -34,6 +35,10 @@ const routes = [
             {
                 path: 'servicos', 
                 component: Servicos 
+            },
+            {
+                path: 'dashboard', 
+                component: Dashboard
             }
         ]
     },
