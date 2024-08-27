@@ -22,23 +22,24 @@ import router from '@/router';
 
         <div class="d-flex">
             <div class="list-group menu-esquerda">
-                <router-link class="list-group-item list-group-item-action" to="/home">
+                <!-- usando classe do bootstrap para rota active -->
+                <router-link class="list-group-item list-group-item-action" to="/home" exact-active-class="active">
                     <i class="bi bi-speedometer2"></i>
                     Dashboard
                 </router-link>
-                <router-link class="list-group-item list-group-item-action" to="/home/vendas">
+                <router-link class="list-group-item list-group-item-action" to="/home/vendas" exact-active-class="ativo">
                     <i class="bi bi-cart"></i>
                     Vendas
                 </router-link>
-                <router-link class="list-group-item list-group-item-action" to="/home/vendas/leads">
+                <router-link class="list-group-item list-group-item-action" to="/home/vendas/leads" exact-active-class="ativo">
                     <i class="bi bi-caret-right"></i>
                     Leads
                 </router-link>
-                <router-link class="list-group-item list-group-item-action" to="/home/vendas/contratos">
+                <router-link class="list-group-item list-group-item-action" to="/home/vendas/contratos" exact-active-class="ativo">
                     <i class="bi bi-caret-right"></i>
                     Contratos
                 </router-link>
-                <router-link class="list-group-item list-group-item-action" to="/home/servicos">
+                <router-link class="list-group-item list-group-item-action" to="/home/servicos" exact-active-class="ativo">
                     <i class="bi bi-card-checklist"></i>
                     Serviços
                 </router-link>
@@ -78,7 +79,7 @@ import router from '@/router';
     border-right: none;
 }
 
-.router-link-active {
+/* .router-link-active {
     color: #fff;
     background-color: #b6d19c;
     border-color: #b4c2a8;
@@ -88,6 +89,12 @@ import router from '@/router';
     color: #fff;
     background-color: #aab680;
     border-color: #899978;
+} */
+
+.ativo {
+    color: #fff;
+    background-color: #f00;
+    border-color: #f00;
 }
 
 </style>
