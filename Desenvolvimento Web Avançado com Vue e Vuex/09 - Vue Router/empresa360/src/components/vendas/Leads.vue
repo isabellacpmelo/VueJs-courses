@@ -1,4 +1,26 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <h5>Leads</h5>
+    {{ dados }}
 </template>
+
+<script>
+export default {
+    data: () => ({
+        dados: null
+    }),
+    methods: {
+        getDadosApi() {
+            fetch('http://localhost:3000/leads')
+                .then(response => response.json())
+                .then(response => {
+                    this.dados = response
+                })
+        }
+    },
+    created() {
+        this.getDadosApi()
+    }
+
+}
+</script>
