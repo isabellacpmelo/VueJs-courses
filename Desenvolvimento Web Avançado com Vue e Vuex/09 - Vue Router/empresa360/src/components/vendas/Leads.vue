@@ -38,7 +38,7 @@ export default {
                 .then(response => response.json())
                 .then(response => {
                     this.dados = response
-                })
+            })
         }
     },
     created() {
