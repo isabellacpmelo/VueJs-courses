@@ -1,4 +1,16 @@
 <!-- eslint-disable vue/multi-word-component-names -->
+<script>
+import ApiMixin from '@/mixins/ApiMixin'
+export default {
+    name: 'Leads',
+    mixins: [ApiMixin],
+    created() {
+        this.getDadosApi('http://localhost:3000/leads')
+    }
+
+}
+</script>
+
 <template>
     <div>
         <h5>Leads</h5>
@@ -26,24 +38,3 @@
         </table>
     </div>
 </template>
-
-<script>
-export default {
-    data: () => ({
-        dados: null
-    }),
-    methods: {
-        getDadosApi() {
-            fetch('http://localhost:3000/leads')
-                .then(response => response.json())
-                .then(response => {
-                    this.dados = response
-            })
-        }
-    },
-    created() {
-        this.getDadosApi()
-    }
-
-}
-</script>
