@@ -27,6 +27,7 @@ const routes = [
                     {
                         path: 'leads',
                         component: Leads,
+                        name: 'leads'
                     },
                     {
                         path: 'leads/:id',
