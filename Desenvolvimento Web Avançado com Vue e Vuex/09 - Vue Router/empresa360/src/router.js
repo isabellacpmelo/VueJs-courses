@@ -35,6 +35,7 @@ const routes = [
                     {
                         path: 'contratos',
                         component: Contratos,
+                        name: 'contratos'
                     },
                     {
                         path: '',
@@ -44,7 +45,8 @@ const routes = [
             },
             {
                 path: 'servicos', 
-                component: Servicos 
+                component: Servicos,
+                name: 'servicos'
             },
             {
                 path: 'dashboard', 
