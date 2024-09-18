@@ -16,7 +16,7 @@ export default {
         <h5>Serviços</h5>
         <hr>
         <div class="row">
-            <div v-for="dado in dados" :key="dado.id" class="col">
+            <div v-for="dado in dados" :key="dado.id" class="col mb-2">
                 <div class="card" style="width: 11rem">
                     <img class="card-img-top" :src="`/img/${dado.icone}`">
                     <div class="card-body text-center">
@@ -27,5 +27,7 @@ export default {
                 </div>
             </div>
         </div>
+
+        <router-view class="mt-3" />
     </div>
 </template>

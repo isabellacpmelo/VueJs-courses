@@ -4,6 +4,7 @@ import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
 import Site from '@/views/Site.vue'
 import Servicos from '@/components/servicos/Servicos.vue'
+import Servico from '@/components/servicos/Servico.vue'
 import Dashboard from '@/components/dashboard/Dashboard.vue';
 import Vendas from '@/components/vendas/Vendas.vue'
 import VendasPadrao from '@/components/vendas/VendasPadrao.vue'
@@ -48,7 +49,14 @@ const routes = [
             {
                 path: 'servicos', 
                 component: Servicos,
-                name: 'servicos'
+                name: 'servicos',
+                children: [
+                    {
+                        path: ':id',
+                        component: Servico,
+                        name: 'servico'
+                    },
+                ]
             },
             {
                 path: 'dashboard', 
