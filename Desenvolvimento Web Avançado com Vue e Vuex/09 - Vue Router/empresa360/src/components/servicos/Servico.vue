@@ -7,6 +7,12 @@ export default {
     created () {
         this.getDadosApi(`http://localhost:3000/servicos/${this.$route.params.id}`)
     },
+    watch: {
+        // eslint-disable-next-line no-unused-vars
+        $route(to, from) {
+            this.getDadosApi(`http://localhost:3000/servicos/${to.params.id}`)
+        }
+    },
 }
 </script>
 
