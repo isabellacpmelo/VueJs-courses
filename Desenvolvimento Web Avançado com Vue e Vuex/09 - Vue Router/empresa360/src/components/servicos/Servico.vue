@@ -10,7 +10,8 @@ export default {
     watch: {
         // eslint-disable-next-line no-unused-vars
         $route(to, from) {
-            this.getDadosApi(`http://localhost:3000/servicos/${to.params.id}`)
+            if (to.params.id != undefined)
+                this.getDadosApi(`http://localhost:3000/servicos/${to.params.id}`)
         }
     },
 }
