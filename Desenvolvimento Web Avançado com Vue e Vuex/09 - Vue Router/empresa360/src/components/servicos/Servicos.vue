@@ -33,5 +33,7 @@ export default {
         </div>
 
         <router-view class="mt-3" />
+        <router-view name="opcoes" class="mt-3" />
+        <router-view name="indicadores" class="mt-3" />
     </div>
 </template>
