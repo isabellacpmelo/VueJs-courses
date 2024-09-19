@@ -8,6 +8,7 @@ import Servico from '@/components/servicos/Servico.vue'
 import Opcoes from '@/components/servicos/Opcoes.vue'
 import Indicadores from '@/components/servicos/Indicadores.vue'
 import Dashboard from '@/components/dashboard/Dashboard.vue';
+import DashboardRodape from '@/components/dashboard/DashboardRodape.vue';
 import Vendas from '@/components/vendas/Vendas.vue'
 import VendasPadrao from '@/components/vendas/VendasPadrao.vue'
 import Leads from '@/components/vendas/Leads.vue'
@@ -66,7 +67,10 @@ const routes = [
             },
             {
                 path: 'dashboard', 
-                component: Dashboard
+                components: {
+                    default: Dashboard,
+                    rodape: DashboardRodape,
+                }
             }
         ]
     },

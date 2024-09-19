@@ -55,7 +55,11 @@ import router from '@/router';
                 </nav>
 
                 <div class="container-fluid">
-                    <router-view></router-view>
+                    <router-view />
+                </div>
+
+                <div class="rodape">
+                    <router-view name="rodape" />
                 </div>
 
             </div>
@@ -93,8 +97,16 @@ import router from '@/router';
 
 .ativo {
     color: #fff;
-    background-color: #f00;
-    border-color: #f00;
+    background-color: rgba(16, 63, 7, 0.438);
+    border-color: rgba(14, 94, 10, 0.705);
+}
+
+.rodape {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ccc;
 }
 
 </style>
