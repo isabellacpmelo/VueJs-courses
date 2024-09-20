@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
 import Site from '@/views/Site.vue'
+import PaginaNaoEncontrada from '@/views/PaginaNaoEncontrada.vue'
 import Servicos from '@/components/servicos/Servicos.vue'
 import Servico from '@/components/servicos/Servico.vue'
 import Opcoes from '@/components/servicos/Opcoes.vue'
@@ -76,37 +77,42 @@ const routes = [
                     rodape: DashboardRodape,
                 }
             },
-            {
-                path: '/redirecionamento-1',
-                redirect: '/home/servicos',
-            },
-            {
-                path: '/redirecionamento-2',
-                redirect: { name: 'leads' },
-            },
-            {
-                path: '/redirecionamento-3',
-                redirect: '/home/vendas',
-            },
-            {
-                path: '/redirecionamento-4',
-                redirect: { name: 'vendas' },
-            },
-            {
-                path: '/redirecionamento-5',
-                redirect: to => {
-                    // podemos programar algo antes do redirecionamento ser efetivado
-                    console.log(to)
-
-                    // return '/home/vendas'
-                    return { name: 'vendas' }
-                },
-            },
         ]
     },
     {
         path: '/login',
         component: Login,
+    },
+    {
+        path: '/redirecionamento-1',
+        redirect: '/home/servicos',
+    },
+    {
+        path: '/redirecionamento-2',
+        redirect: { name: 'leads' },
+    },
+    {
+        path: '/redirecionamento-3',
+        redirect: '/home/vendas',
+    },
+    {
+        path: '/redirecionamento-4',
+        redirect: { name: 'vendas' },
+    },
+    {
+        path: '/redirecionamento-5',
+        redirect: to => {
+            // podemos programar algo antes do redirecionamento ser efetivado
+            console.log(to)
+
+            // return '/home/vendas'
+            return { name: 'vendas' }
+        },
+    },
+    {
+        // path: '*',
+        path: '/:catchAll(.*)*',
+        component: PaginaNaoEncontrada
     },
 ]
 
