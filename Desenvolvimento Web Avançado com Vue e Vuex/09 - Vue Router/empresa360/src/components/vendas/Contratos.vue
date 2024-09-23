@@ -4,8 +4,21 @@ import ApiMixin from '@/mixins/ApiMixin'
 export default {
     name: 'Leads',
     mixins: [ApiMixin],
+    data: () => ({
+        parametrosDeRelacionamento: '_expand=lead&_expand=servico',
+    }),
     created() {
-        this.getDadosApi('http://localhost:3000/contratos?_expand=lead&_expand=servico')
+        this.getDadosApi(`http://localhost:3000/contratos?${this.parametrosDeRelacionamento}`)
+    },
+    beforeRouteUpdate(to, from, next) {
+        // console.log(to.query) // objeto => URLSearchParams
+        const queryParams = new URLSearchParams(to.query).toString()
+        // console.log(queryParams)
+        const url = `http://localhost:3000/contratos?${this.parametrosDeRelacionamento}&${queryParams}`
+        console.log(url)
+        this.getDadosApi(url)
+
+        next()
     }
 
 }
@@ -14,6 +27,24 @@ export default {
 <template>
     <div>
         <h5>Contratos</h5>
+        teste
+
+        <router-link class="btn btn-primary" :to="{ name: 'contratos', query: {leadId_like: 1 }}">
+            LeadId = 1
+        </router-link>
+
+        <router-link class="btn btn-primary" to="/home/vendas/contratos?servicoId_like=2">
+            ServicoId = 2
+        </router-link>
+
+        <router-link class="btn btn-success" :to="{ name: 'contratos', query: {leadId_like: 1, servicoId_like: 2 }}">
+            LeadId = 1 e ServicoId = 2
+        </router-link>
+
+        <router-link class="btn btn-success" to="/home/vendas/contratos?servicoId_like=2&leadId_like=2">
+            ServicoId = 2 e LeadId = 2
+        </router-link>
+
         <table class="table table-hover">
             <thead>
                 <tr>
