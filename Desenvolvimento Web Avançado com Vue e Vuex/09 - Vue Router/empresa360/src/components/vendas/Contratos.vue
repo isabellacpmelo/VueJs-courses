@@ -8,7 +8,10 @@ export default {
         parametrosDeRelacionamento: '_expand=lead&_expand=servico',
     }),
     created() {
-        this.getDadosApi(`http://localhost:3000/contratos?${this.parametrosDeRelacionamento}`)
+        const queryParams = new URLSearchParams(this.$route.query).toString()
+        console.log(queryParams)
+        const url = `http://localhost:3000/contratos?${this.parametrosDeRelacionamento}&${queryParams}`
+        this.getDadosApi(url)
     },
     beforeRouteUpdate(to, from, next) {
         // console.log(to.query) // objeto => URLSearchParams
@@ -27,8 +30,6 @@ export default {
 <template>
     <div>
         <h5>Contratos</h5>
-        teste
-
         <router-link class="btn btn-primary" :to="{ name: 'contratos', query: {leadId_like: 1 }}">
             LeadId = 1
         </router-link>
