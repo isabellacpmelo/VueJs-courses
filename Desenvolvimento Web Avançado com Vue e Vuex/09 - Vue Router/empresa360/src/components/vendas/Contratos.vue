@@ -8,6 +8,7 @@ export default {
         parametrosDeRelacionamento: '_expand=lead&_expand=servico',
     }),
     created() {
+        // http://localhost:3000/contratos?_expand=lead&_expand=servico&data_inicio_gte=2022-01-01&data_inicio_lte=2022-01-31&id_like=3
         const queryParams = new URLSearchParams(this.$route.query).toString()
         console.log(queryParams)
         const url = `http://localhost:3000/contratos?${this.parametrosDeRelacionamento}&${queryParams}`
