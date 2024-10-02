@@ -29,8 +29,17 @@ export default {
                     <td>{{ dado.nome }}</td>
                     <td>{{ dado.telefone }}</td>
                     <td>
-                        <router-link :to="{name: 'lead', params: {id: dado.id}}" class="btn btn-sm btn-primary">
-                            <i class="bi bi-pencil-square" style="cursor: pointer"></i>
+                        <router-link
+                            :to="{
+                                name: 'lead', 
+                                params: {id: dado.id, outroParametro: `teste_${dado.id}`}
+                                }"
+                            class="btn btn-sm btn-primary"
+                        >
+                            <i
+                                class="bi bi-pencil-square"
+                                style="cursor: pointer" 
+                            />
                         </router-link>
                     </td>
                 </tr>

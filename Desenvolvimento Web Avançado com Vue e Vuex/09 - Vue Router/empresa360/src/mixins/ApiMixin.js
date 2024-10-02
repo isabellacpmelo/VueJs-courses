@@ -8,8 +8,6 @@ export default {
                 if(queryParams[chave] == '') delete queryParams[chave]
             })
 
-            console.log(queryParams)
-
             const urlQueryParams = new URLSearchParams(queryParams).toString()
 
             const urlCompleta = urlQueryParams ? `${url}&${urlQueryParams}` : url
