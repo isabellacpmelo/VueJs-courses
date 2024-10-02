@@ -4,8 +4,10 @@ import ApiMixin from '@/mixins/ApiMixin'
 export default {
     name: 'Servico',
     mixins: [ApiMixin],
+    props: ['id'],
     created () {
-        this.getDadosApi(`http://localhost:3000/servicos/${this.$route.params.id}`)
+        // console.log('Via props', this.$props)
+        this.getDadosApi(`http://localhost:3000/servicos/${this.id}`)
     },
     // watch: {
     //     // eslint-disable-next-line no-unused-vars

@@ -59,12 +59,17 @@ const routes = [
                 ]
             },
             {
-                path: 'servicos', 
+                path: 'servicos',
                 component: Servicos,
                 name: 'servicos',
                 children: [
                     {
                         path: ':id',
+                        props: {
+                            default: true,
+                            indicadores: true,
+                            opcoes: true,
+                        },
                         alias: '/s/:id',
                         name: 'servico',
                         components: {
