@@ -35,7 +35,12 @@ const routes = [
                     {
                         path: 'leads',
                         component: Leads,
-                        name: 'leads'
+                        name: 'leads',
+                        beforeEnter() {
+                            // beforeEnter(to, from, next)
+                            // funciona especificamente para a rota na qual foi adicionada, como exemplo, a rota leads
+                            console.log('Guarda de rota beforeEnter:', 'Verificar se o usuário tem a permissão de carregar a rota')
+                        },
                     },
                     {
                         path: 'leads/:id/:outroParametro',
@@ -156,24 +161,25 @@ const router = createRouter({
     routes, // routes: routes,
 })
 
-router.beforeEach((to) => {
+router.beforeEach(() => {
     // console.log('Origem:', from)
     // console.log('Destino:', to)
     // verificar se o usuário está autorizado a acessar a rota
-    // console.log('Método executado antes do acesso a rota destino')
 
-    if(to.meta.requerAutorizacao) {
-        console.log('Validar o acesso')
-    }
-    else {
-        console.log('Apenas seguir a navegação')
-    }
+    // if(to.meta.requerAutorizacao) {
+    //     console.log('Validar o acesso')
+    // }
+    // else {
+    //     console.log('Apenas seguir a navegação')
+    // }
+
+    console.log('Guarda de rota global beforeEach:', 'Método executado antes do acesso a rota destino')
 })
 
-router.afterEach((to, from) => {
-    console.log('Guarda de rota executada após a conclusão da navegação')
-    console.log('Origem:', from)
-    console.log('Destino:', to)
+router.afterEach(() => {
+    // console.log('Origem:', from)
+    // console.log('Destino:', to)
+    console.log('Guarda de rota global afterEach:', 'Método executado após a conclusão da navegação')
 }) 
 
 export default router
