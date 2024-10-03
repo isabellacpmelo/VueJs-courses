@@ -170,4 +170,10 @@ router.beforeEach((to) => {
     }
 })
 
+router.afterEach((to, from) => {
+    console.log('Guarda de rota executada após a conclusão da navegação')
+    console.log('Origem:', from)
+    console.log('Destino:', to)
+}) 
+
 export default router
