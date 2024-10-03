@@ -38,7 +38,7 @@ const routes = [
                         name: 'leads',
                         beforeEnter() {
                             // beforeEnter(to, from, next)
-                            // funciona especificamente para a rota na qual foi adicionada, como exemplo, a rota leads
+                            // Essa guarda de rota funciona dentro da rota na qual ela foi definida
                             console.log('Guarda de rota beforeEnter:', 'Verificar se o usuário tem a permissão de carregar a rota')
                         },
                     },
