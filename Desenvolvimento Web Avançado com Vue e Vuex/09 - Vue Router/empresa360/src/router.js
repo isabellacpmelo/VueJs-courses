@@ -158,8 +158,16 @@ const routes = [
 
 const router = createRouter({
     history: createWebHistory(),
-    scrollBehavior() {
-        return { left: 150, top: 150 } // left = x; top = y
+    scrollBehavior(to) {
+        // return { left: 150, top: 150 } // left = x; top = y
+        console.log(to.hash)
+
+        if(to.hash) {
+            return { el: to.hash } // to.hash deve corresponder a um id de elemento HTML 
+        }
+
+        return { left: 0, top: 0 } // left = x; top = y
+
     },
     routes, // routes: routes,
 })
