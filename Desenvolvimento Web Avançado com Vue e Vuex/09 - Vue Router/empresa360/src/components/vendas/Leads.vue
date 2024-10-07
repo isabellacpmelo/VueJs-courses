@@ -10,6 +10,11 @@ export default {
     // beforeRouteEnter(to, from, next) {}
     beforeRouteEnter() {
         console.log('Guarda de componente beforeRouteEnter:', 'Método executado dentro do componente')
+    },
+    // beforeRouteLeave(to, from, next) {}
+    beforeRouteLeave() {
+        // Muito usada para validar informações antes de serem salvar e alterar a navegação causando perda de dados
+        console.log('Guarda de componente beforeRouteLeave:', 'Método executado dentro do componente')
     }
 
 }

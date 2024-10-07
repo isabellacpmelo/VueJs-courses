@@ -12,6 +12,16 @@ export default {
         // console.log(this.id, this.outroParametro)
         this.getDadosApi(`http://localhost:3000/leads/${this.id}`)
     },
+    beforeRouteLeave() {
+        const confirmar = window.confirm('Deseja sair deste formulário?')
+        
+        if(confirmar) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
 }
 </script>
 
