@@ -5,6 +5,10 @@ export default {
     props: ['id'],
     created() {
         // console.log('Parametro via props', this.id)
+    },
+    beforeRouteUpdate() {
+        // Não recebe next
+        console.log('Guarda de componente beforeRouteUpdate')
     }
 }
 </script>
