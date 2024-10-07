@@ -182,4 +182,7 @@ router.afterEach(() => {
     console.log('Guarda de rota global afterEach:', 'Método executado após a conclusão da navegação')
 }) 
 
+router.beforeResolve(() => {
+    console.log('Guarda Global before resolve:', 'É executada por último dentre as rotas que são do tipo before!')
+})
 export default router
