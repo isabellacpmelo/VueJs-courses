@@ -158,6 +158,9 @@ const routes = [
 
 const router = createRouter({
     history: createWebHistory(),
+    scrollBehavior() {
+        return { left: 150, top: 150 } // left = x; top = y
+    },
     routes, // routes: routes,
 })
 
