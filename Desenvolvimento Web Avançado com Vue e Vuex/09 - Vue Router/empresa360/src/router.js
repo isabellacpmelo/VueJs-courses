@@ -17,7 +17,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 // import Contratos from '@/components/vendas/Contratos.vue'
 
 // Lazy loading
-const Contratos = () => import('@/components/vendas/Contratos.vue')
+const Contratos = () => import(/* webpackChunckName: "vendas" */ '@/components/vendas/Contratos.vue')
 const Dashboard = () => import('@/components/dashboard/Dashboard.vue')
 const DashboardRodape = () => import('@/components/dashboard/DashboardRodape.vue')
 const Home = () => import('@/views/Home.vue')
@@ -28,10 +28,10 @@ const Servicos = () => import('@/components/servicos/Servicos.vue')
 const Servico = () => import('@/components/servicos/Servico.vue')
 const Opcoes = () => import('@/components/servicos/Opcoes.vue')
 const Indicadores = () => import('@/components/servicos/Indicadores.vue')
-const Vendas = () => import('@/components/vendas/Vendas.vue')
-const VendasPadrao = () => import('@/components/vendas/VendasPadrao.vue')
-const Leads = () => import('@/components/vendas/Leads.vue')
-const Lead = () => import('@/components/vendas/Lead.vue')
+const Vendas = () => import(/* webpackChunckName: "vendas" */ '@/components/vendas/Vendas.vue')
+const VendasPadrao = () => import(/* webpackChunckName: "vendas" */ '@/components/vendas/VendasPadrao.vue')
+const Leads = () => import(/* webpackChunckName: "vendas" */ '@/components/vendas/Leads.vue')
+const Lead = () => import(/* webpackChunckName: "vendas" */ '@/components/vendas/Lead.vue')
 
 const routes = [
     {
