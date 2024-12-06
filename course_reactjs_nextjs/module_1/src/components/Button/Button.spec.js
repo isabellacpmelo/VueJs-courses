@@ -1,3 +1,4 @@
+/* eslint-disable testing-library/no-node-access */
 import { render, screen } from '@testing-library/react'
 // import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -41,8 +42,11 @@ describe('<Button  />', () => {
 
         expect(button).not.toBeDisabled()
     })
+
+    test('should match snapshot', () => {
+        const fn = jest.fn()
+        const { container } = render(<Button text="Load more" disabled={false} onClick={fn} />)
+
+        expect(container.firstChild).toMatchSnapshot()
+    })
 })
-
-// Me diga por que o npm test -- --coverage não está funcionando?
-
-// Me diga por que o npm test -- --coverage --watchAll nao funciona?
