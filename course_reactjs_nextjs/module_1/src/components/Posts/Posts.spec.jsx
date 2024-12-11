@@ -28,5 +28,23 @@ const props = {
 describe('<Posts />', () => {
     test('should render Posts', () => {
         render(<Posts {...props} />)
+
+        expect(screen.getAllByRole('heading', { name: /title/i }))
+            .toHaveLength(3)
+
+        expect(screen.getAllByRole('img', { name: /title/i }))
+            .toHaveLength(3)
+
+        expect(screen.getAllByText(/body/i))
+            .toHaveLength(3)
+
+        expect(screen.getByRole('img', { name: /title mock 3/i }))
+        .toHaveAttribute('src', 'img/img3.png')
+    })
+
+    test('should match snapshot', () => {
+        const {container} = render(<Posts {...props}/>)
+
+        expect(container.firstChild).toMatchSnapshot()
     })
 })
