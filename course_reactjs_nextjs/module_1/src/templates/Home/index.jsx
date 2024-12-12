@@ -16,7 +16,7 @@ export const Home = () => {
 
   const noMorePosts = page + postsPerPage > allPosts.length
 
-  const filteredPosts = !!searchValue ? 
+  const filteredPosts = !!searchValue ?
       allPosts.filter(post => {
         return post.title.toLowerCase().includes(
           searchValue.toLowerCase()
@@ -36,7 +36,7 @@ export const Home = () => {
     console.log(new Date().toLocaleString('pt-br'))
     handleLoadPosts(0, postsPerPage);
   }, [handleLoadPosts, postsPerPage])
-    
+
   const loadMorePosts = () => {
     const nextPage = page + postsPerPage
     const nextPosts = allPosts.slice(nextPage, nextPage + postsPerPage)
@@ -48,7 +48,7 @@ export const Home = () => {
 
   const handleChange = (e) => {
     const { value } = e.target
-    setSearchValue(value) 
+    setSearchValue(value)
   }
 
   return (
@@ -57,7 +57,7 @@ export const Home = () => {
         {!!searchValue && (
           <h1>Search Value: {searchValue}</h1>
         )}
-        
+
         <TextInput
           searchValue={searchValue}
           handleChange={handleChange}
