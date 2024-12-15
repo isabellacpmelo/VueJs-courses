@@ -1,4 +1,5 @@
-import P from 'prop-types'
+/* eslint-disable react/prop-types */
+/* eslint-disable react/react-in-jsx-scope */
 import './styles.css'
 
 export const Button = ({ text, onClick, disabled }) => (
@@ -10,14 +11,3 @@ export const Button = ({ text, onClick, disabled }) => (
       {text}
   </button>
 )
-
-button.defaltProps = {
-  disabled: false,
-  
-}
-
-button.propTypes = {
-  text: P.string.isRequired,
-  onClick: P.func.isRequired,
-  disabled: P.bool
-}

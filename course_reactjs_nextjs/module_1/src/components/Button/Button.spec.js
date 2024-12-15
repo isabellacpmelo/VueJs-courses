@@ -1,3 +1,5 @@
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable no-undef */
 /* eslint-disable testing-library/no-node-access */
 import { render, screen } from '@testing-library/react'
 // import { fireEvent, render, screen } from '@testing-library/react'
