@@ -1,63 +1,85 @@
 import logo from './logo.svg'
 import './App.css'
-import { Component } from 'react'
+import { useState } from 'react'
+// import { Component, useState } from 'react'
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   )
-// }
+function App() {
+  const [reverse, setReverse] = useState(false)
+  const [counter, setCounter] = useState(0)
+  const reverseClass = reverse ? 'reverse' : ''
 
-class App extends Component {
-  // constructor(props) {
-  //   super(props)
-
-  //   this.handleClick = this.handleClick.bind(this)
-
-  //   this.state = {
-  //     reverse: false,
-  //   }
-  // }
-
-  state = {
-    reverse: false,
+  const handleClick = () => {
+    // this.setState({ reverse: !reverse })
+    setReverse(!reverse)
   }
 
-  // handleClick() {
-  //   const { reverse } = this.state
-  //   this.setState({ reverse: !reverse })
-  // }
-
-  handleClick = () => {
-    const { reverse } = this.state
-    this.setState({ reverse: !reverse })
+  const handleIncrement = () => {
+    setCounter(counter + 1)
   }
 
-  render() {
-    const { reverse } = this.state
-    const reverseClass = reverse ? 'reverse' : ''
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className={`App-logo ${reverseClass}`} alt="logo" />
 
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className={`App-logo ${reverseClass}`} alt="logo" />
-          <button type="button" onClick={this.handleClick}>
+        <h1>Contador: {counter}</h1>
+
+        <p>
+          <button type="button" onClick={handleClick}>
             Reverse {reverseClass}
           </button>
-        </header>
-      </div>
-    )
-  }
+        </p>
+
+        <p>
+          <button type="button" onClick={handleIncrement}>
+            Increment {counter}
+          </button>
+        </p>
+      </header>
+    </div>
+  )
 }
+
+// class App extends Component {
+//   // constructor(props) {
+//   //   super(props)
+
+//   //   this.handleClick = this.handleClick.bind(this)
+
+//   //   this.state = {
+//   //     reverse: false,
+//   //   }
+//   // }
+
+//   state = {
+//     reverse: false,
+//   }
+
+//   // handleClick() {
+//   //   const { reverse } = this.state
+//   //   this.setState({ reverse: !reverse })
+//   // }
+
+//   handleClick = () => {
+//     const { reverse } = this.state
+//     this.setState({ reverse: !reverse })
+//   }
+
+//   render() {
+//     const { reverse } = this.state
+//     const reverseClass = reverse ? 'reverse' : ''
+
+//     return (
+//       <div className="App">
+//         <header className="App-header">
+//           <img src={logo} className={`App-logo ${reverseClass}`} alt="logo" />
+//           <button type="button" onClick={this.handleClick}>
+//             Reverse {reverseClass}
+//           </button>
+//         </header>
+//       </div>
+//     )
+//   }
+// }
 
 export default App
