@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 import P from 'prop-types'
 import './App.css'
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 
-const Button = React.memo(function Button({ incrementButton }) {
+const Button = ({ incrementButton }) => {
   console.log('Filho renderizou')
   return <button onClick={() => incrementButton(10)}>(+)</button>
-})
+}
 
 Button.propTypes = {
   incrementButton: P.func,
@@ -21,11 +21,15 @@ function App() {
 
   console.log('Pai renderizou')
 
+  const btn = useMemo(() => {
+    return <Button incrementButton={incrementCounter} />
+  }, [incrementCounter])
+
   return (
     <div className="App">
       <p>Teste 3</p>
       <h1>C1: {counter}</h1>
-      <Button incrementButton={incrementCounter} />
+      {btn}
     </div>
   )
 }
