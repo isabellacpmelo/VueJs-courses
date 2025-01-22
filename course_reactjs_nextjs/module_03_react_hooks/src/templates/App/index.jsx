@@ -1,10 +1,14 @@
+import { Posts } from '../../components/Posts'
+import { PostsProvider } from '../../contexts/PostsProvider'
 import './style.css'
 
 function App() {
   return (
-    <div>
-      <h1>Oi</h1>
-    </div>
+    <PostsProvider>
+      <div>
+        <Posts />
+      </div>
+    </PostsProvider>
   )
 }
 
