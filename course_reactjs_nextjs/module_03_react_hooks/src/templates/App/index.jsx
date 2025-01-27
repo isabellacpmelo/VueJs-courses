@@ -1,57 +1,66 @@
-import { useState, useEffect } from 'react'
-import { useFetch } from './use-fetch'
+import { useCallback, useEffect, useState } from 'react'
 
-function App() {
-  const [postId, setPostId] = useState('')
-  const [result, loading] = useFetch(
-    // DDSS
-    'https://jsonplaceholder.typicode.com/posts/' + postId,
-    {
-      method: 'GET',
-      Headers: {
-        abc: `Post ID : ${postId ? postId : 'None'}`,
-      },
-    },
-  )
+const useAsync = (asyncFunction, shouldRun) => {
+  console.log('Effect time:', new Date().toLocaleString())
+  const [result, setResult] = useState(null)
+  const [error, setError] = useState(null)
+  const [status, setStatus] = useState('idle')
+
+  const run = useCallback(async () => {
+    setResult(null)
+    setError(null)
+    setStatus('pending')
+
+    return asyncFunction()
+      .then((response) => {
+        setResult(response)
+        setStatus('settled')
+      })
+      .catch((error) => {
+        setError(error)
+        setStatus('error')
+      })
+  }, [asyncFunction])
 
   useEffect(() => {
-    console.log('ID do Post', postId)
-  }, [postId])
+    if (shouldRun) {
+      run()
+    }
+  }, [run, shouldRun])
 
-  const handleClick = (id) => {
-    setPostId(id)
+  return [run, result, error, status]
+}
+
+const fetchData = async () => {
+  throw new Error('Que chato!')
+  // await new Promise((r) => setTimeout(r, 2000))
+  // const data = await fetch('https://jsonplaceholder.typicode.com/posts/')
+  // const json = await data.json()
+
+  // return json
+}
+
+function App() {
+  const [posts, setPosts] = useState(null)
+  const [reFetchData, result, error, status] = useAsync(fetchData, true)
+
+  if (status === 'idle') {
+    return <pre>Nada executando</pre>
   }
 
-  if (loading) return <p>Loading...</p>
-
-  if (!loading && result) {
-    return (
-      <div>
-        {result.length > 0 ? (
-          result.map((post) => (
-            <div
-              key={`post-${post.id}`}
-              onClick={() => {
-                handleClick(post.id)
-              }}
-            >
-              <p>{post.title}</p>
-            </div>
-          ))
-        ) : (
-          <div
-            onClick={() => {
-              handleClick('')
-            }}
-          >
-            <p>{result.title}</p>
-          </div>
-        )}
-      </div>
-    )
+  if (status === 'pending') {
+    return <pre>Loading...</pre>
   }
 
-  return <h1>Oi</h1>
+  if (status === 'error') {
+    return <pre>{error.message}</pre>
+  }
+
+  if (status === 'settled') {
+    return <pre>{JSON.stringify(result, null, 2)}</pre>
+  }
+
+  return 'IXXX'
 }
 
 export default App
