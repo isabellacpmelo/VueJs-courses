@@ -31,7 +31,12 @@ const useFetch = (url, options) => {
 
   useEffect(() => {
     let wait = false
-    console.log('EFFECT', new Date().toLocaleString())
+    console.log(
+      `%cEffect Time: ${new Date().toLocaleString()}`,
+      'background: #000; color: #A1DA87',
+    )
+    const controller = new AbortController()
+    const signal = controller.signal
     console.log(optionsRef.current)
 
     setLoading(true)
@@ -39,7 +44,10 @@ const useFetch = (url, options) => {
     const fetchData = async () => {
       await new Promise((r) => setTimeout(r, 1000))
       try {
-        const response = await fetch(urlRef.current, optionsRef.current)
+        const response = await fetch(urlRef.current, {
+          signal,
+          ...optionsRef.current,
+        })
         const jsonResult = await response.json()
 
         if (!wait) {
@@ -50,7 +58,7 @@ const useFetch = (url, options) => {
         if (!wait) {
           setLoading(false)
         }
-        throw error
+        console.warn(error)
       }
     }
 
@@ -58,6 +66,7 @@ const useFetch = (url, options) => {
 
     return () => {
       wait = true
+      controller.abort()
     }
   }, [shouldLoad])
 
@@ -67,6 +76,7 @@ const useFetch = (url, options) => {
 function App() {
   const [postId, setPostId] = useState('')
   const [result, loading] = useFetch(
+    // DDSS
     'https://jsonplaceholder.typicode.com/posts/' + postId,
     {
       method: 'GET',
