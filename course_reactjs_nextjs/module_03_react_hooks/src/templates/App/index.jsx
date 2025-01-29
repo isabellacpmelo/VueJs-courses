@@ -1,62 +1,42 @@
-import {
-  forwardRef,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react'
+import { useEffect, useState } from 'react'
+
+const useMediaQuery = (queryValue, inicialValue = false) => {
+  const [match, setMatch] = useState(inicialValue)
+
+  useEffect(() => {
+    let isMounted = true
+    const matchMedia = window.matchMedia(queryValue)
+
+    const handleChange = () => {
+      if (!!isMounted) return
+      setMatch(!!matchMedia.matches)
+    }
+
+    console.log('teste')
+    console.log(matchMedia)
+    console.log(queryValue)
+    matchMedia.addEventListener('change', handleChange)
+    setMatch(!!matchMedia.matches)
+
+    return () => {
+      isMounted = false
+      matchMedia.removeEventListener('change', handleChange)
+    }
+  }, [queryValue])
+
+  return match
+}
 
 function App() {
-  const [counted, setCounted] = useState([1, 2, 3, 4])
+  const huge = useMediaQuery('(min-width: 980px)')
 
-  const divRef = useRef()
-
-  // useLayoutEffect
-  useEffect(() => {
-    divRef.current.divRef.scrollTop = divRef.current.divRef.scrollHeight
-  })
-
-  const handleClick = () => {
-    setCounted((c) => [...c, +c.slice(-1) + 1])
-    divRef.current.handleClick()
-    console.log(divRef.current)
-  }
+  const background = huge ? 'green' : 'null'
 
   return (
     <div>
-      <button onClick={handleClick}>Count: {counted.slice(-1)}</button>
-      <DisplayCounted counted={counted} ref={divRef} />
+      <p style={{ fontSize: '50px', background: `${background}` }}>Oi</p>
     </div>
   )
 }
 
 export default App
-
-export const DisplayCounted = forwardRef(function ({ counted }, ref) {
-  const [rand, setRand] = useState('0.24')
-  const divRef = useRef()
-
-  const handleClick = () => {
-    setRand(Math.random().toFixed(2))
-  }
-
-  useImperativeHandle(ref, () => ({
-    handleClick,
-    divRef: divRef.current,
-  }))
-
-  return (
-    <div
-      ref={divRef}
-      style={{ height: '500px', width: '100px', overflowY: 'scroll' }}
-    >
-      {counted.map((c) => {
-        return (
-          <p key={`c-${c}`} onClick={handleClick}>
-            {c} ++ {rand}
-          </p>
-        )
-      })}
-    </div>
-  )
-})
