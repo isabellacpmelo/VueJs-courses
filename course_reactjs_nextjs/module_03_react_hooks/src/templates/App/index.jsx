@@ -1,40 +1,88 @@
-import { useEffect, useState } from 'react'
+import { Component, useEffect, useState } from 'react'
 
-const useMediaQuery = (queryValue, inicialValue = false) => {
-  const [match, setMatch] = useState(inicialValue)
-
-  useEffect(() => {
-    let isMounted = true
-    const matchMedia = window.matchMedia(queryValue)
-
-    const handleChange = () => {
-      if (!!isMounted) return
-      setMatch(!!matchMedia.matches)
-    }
-
-    console.log('teste')
-    console.log(matchMedia)
-    console.log(queryValue)
-    matchMedia.addEventListener('change', handleChange)
-    setMatch(!!matchMedia.matches)
-
-    return () => {
-      isMounted = false
-      matchMedia.removeEventListener('change', handleChange)
-    }
-  }, [queryValue])
-
-  return match
+const s = {
+  style: {
+    fontSize: '60px',
+  },
 }
 
-function App() {
-  const huge = useMediaQuery('(min-width: 980px)')
+class MyErrorBoundary extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false }
+  }
 
-  const background = huge ? 'green' : 'null'
+  static getDerivedStateFromError(error) {
+    // Atualiza o state para que a próxima renderização mostre a UI alternativa.
+    return { hasError: true }
+  }
+
+  componentDidCatch(error, errorInfo) {
+    // Você também pode registrar o erro em um serviço de relatórios de erro
+    // console.log(error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // Você pode renderizar qualquer UI alternativa
+      return <p {...s}>Deu ruim =(</p>
+    }
+
+    return this.props.children
+  }
+}
+
+const ItWillThrowError = () => {
+  const [counter, setCounter] = useState(0)
+
+  useEffect(() => {
+    if (counter > 3) {
+      throw new Error('Que chato!!!')
+    }
+  }, [counter])
 
   return (
     <div>
-      <p style={{ fontSize: '50px', background: `${background}` }}>Oi</p>
+      <button {...s} onClick={() => setCounter((s) => s + 1)}>
+        Click to increase {counter}
+      </button>
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <div {...s}>
+      <MyErrorBoundary>
+        <ItWillThrowError />
+      </MyErrorBoundary>
+      <MyErrorBoundary>
+        <ItWillThrowError />
+      </MyErrorBoundary>
+      <MyErrorBoundary>
+        <ItWillThrowError />
+      </MyErrorBoundary>
+      <MyErrorBoundary>
+        <ItWillThrowError />
+      </MyErrorBoundary>
+      <MyErrorBoundary>
+        <ItWillThrowError />
+      </MyErrorBoundary>
+      <MyErrorBoundary>
+        <ItWillThrowError />
+      </MyErrorBoundary>
+      <MyErrorBoundary>
+        <ItWillThrowError />
+      </MyErrorBoundary>
+      <MyErrorBoundary>
+        <ItWillThrowError />
+      </MyErrorBoundary>
+      <MyErrorBoundary>
+        <ItWillThrowError />
+      </MyErrorBoundary>
+      <MyErrorBoundary>
+        <ItWillThrowError />
+      </MyErrorBoundary>
     </div>
   )
 }
