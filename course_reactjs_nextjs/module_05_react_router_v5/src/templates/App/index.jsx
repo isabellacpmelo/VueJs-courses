@@ -6,13 +6,13 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 export function App() {
-  const history = useHistory();
+  // const history = useHistory();
 
-  useEffect(() => {
-    setTimeout(() => {
-      history.push('/abc/slug/id');
-    }, 5000);
-  }, [history]);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     history.push('/abc/slug/id');
+  //   }, 5000);
+  // }, [history]);
 
   return (
     <CounterProvider>
