@@ -12,7 +12,9 @@ export const Menu = () => {
       }}
     >
       <Link to="/">Home</Link>
+      <a href="/">Home</a>
       <Link to="/abc">Abc</Link>
+      <a href="/abc">Abc</a>
     </nav>
   );
 };
