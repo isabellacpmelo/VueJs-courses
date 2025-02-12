@@ -78,6 +78,67 @@
           <input type="number" id="number" name="number" min="10" max="90" />
         </p>
         <p>
+          <label for="password">Sua senha:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Digite sua senha" />
+        </p>
+        <p>
+          <label for="range">Range:</label>
+          <input
+            type="range"
+            id="range"
+            name="range"
+            min="0"
+            max="10"
+            step="1"
+            list="tickmarks" />
+
+          <datalist id="tickmarks">
+            <option value="0" label="0"></option>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+            <option value="5" label="50%"></option>
+            <option value="6"></option>
+            <option value="7"></option>
+            <option value="8"></option>
+            <option value="9"></option>
+            <option value="10" label="100%"></option>
+          </datalist>
+        </p>
+        <p>
+          <label for="url">Sua senha:</label>
+          <input type="url" id="url" name="url" placeholder="Digite sua url" />
+        </p>
+        <p>
+          <label for="url">Sua senha:</label>
+          <input type="url" id="url" name="url" placeholder="Digite sua url" />
+        </p>
+        <p>
+          <label for="search">Sua pesquisa:</label>
+          <input type="search" id="search" name="search" placeholder="search" />
+        </p>
+        <p>
+          <label for="select">Selecione alguma opção:</label>
+          <select id="select" name="select">
+            <optgroup label="Valores">
+              <option value="qualquer 1" label="Label 1"></option>
+              <option value="qualquer 2" label="Label 2"></option>
+              <option value="qualquer 3" label="Label 3"></option>
+              <option value="qualquer 4" label="Label 4"></option>
+              <option value="qualquer 5" label="Label 5"></option>
+            </optgroup>
+          </select>
+        </p>
+        <p>
+          <label for="textarea">Seu texto:</label>
+          <textarea id="textarea" name="textarea" rows="3" cols="20"></textarea>
+        </p>
+        <p>
           <button type="reset">Reset</button>
           <button type="submit">Submit</button>
         </p>
